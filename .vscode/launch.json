@@ -1,0 +1,22 @@
+{
+	"version": "0.2.0",
+	"configurations":
+	[
+		{
+			"name": "Cortex debug",
+			"type": "cortex-debug",
+			"request": "launch",
+			"servertype": "openocd",
+			"cwd": "${workspaceFolder}",
+			"armToolchainPath": "c:/Users/Pierre-Anthony/.vscode/extensions/buzzyelectronics.stm-helper-1.2.9/ArmGcc/bin",
+			"executable": "build/stm32-lx16a.elf",
+			"svdFile": "c:/Users/Pierre-Anthony/.vscode/extensions/buzzyelectronics.stm-helper-1.2.9/SvdTools/STM32F1/STM32F103.svd",
+			"configFiles":
+			[
+				"c:/Users/Pierre-Anthony/.vscode/extensions/buzzyelectronics.stm-helper-1.2.9/OpenOCD/scripts/interface/stlink.cfg",
+				"c:/Users/Pierre-Anthony/.vscode/extensions/buzzyelectronics.stm-helper-1.2.9/OpenOCD/scripts/target/stm32f1x.cfg"
+			],
+			"preLaunchTask": "Build project"
+		}
+	]
+}

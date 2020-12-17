@@ -1,0 +1,1657 @@
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"LX16A.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.LobotCheckSum,"ax",%progbits
+  16              		.align	1
+  17              		.global	LobotCheckSum
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	LobotCheckSum:
+  25              	.LVL0:
+  26              	.LFB65:
+  27              		.file 1 "Core/Src/LX16A.c"
+   1:Core/Src/LX16A.c **** 
+   2:Core/Src/LX16A.c **** #include "LX16A.h"
+   3:Core/Src/LX16A.c **** 
+   4:Core/Src/LX16A.c **** 
+   5:Core/Src/LX16A.c **** //#define LOBOT_DEBUG 1  /*Debug ：print debug value*/
+   6:Core/Src/LX16A.c **** 
+   7:Core/Src/LX16A.c **** uint8_t LobotCheckSum(uint8_t buf[])
+   8:Core/Src/LX16A.c **** {
+  28              		.loc 1 8 1 view -0
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 0
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		@ link register save eliminated.
+   9:Core/Src/LX16A.c ****   uint8_t i;
+  33              		.loc 1 9 3 view .LVU1
+  10:Core/Src/LX16A.c ****   uint16_t temp = 0;
+  34              		.loc 1 10 3 view .LVU2
+  11:Core/Src/LX16A.c ****   for (i = 2; i < buf[3] + 2; i++) {
+  35              		.loc 1 11 3 view .LVU3
+  10:Core/Src/LX16A.c ****   uint16_t temp = 0;
+  36              		.loc 1 10 12 is_stmt 0 view .LVU4
+  37 0000 0022     		movs	r2, #0
+  38              		.loc 1 11 10 view .LVU5
+  39 0002 0223     		movs	r3, #2
+  40              	.LVL1:
+  41              	.L2:
+  42              		.loc 1 11 15 is_stmt 1 discriminator 1 view .LVU6
+  43              		.loc 1 11 22 is_stmt 0 discriminator 1 view .LVU7
+  44 0004 C178     		ldrb	r1, [r0, #3]	@ zero_extendqisi2
+  45              		.loc 1 11 17 discriminator 1 view .LVU8
+  46 0006 0131     		adds	r1, r1, #1
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 2
+
+
+  47              		.loc 1 11 3 discriminator 1 view .LVU9
+  48 0008 9942     		cmp	r1, r3
+  49 000a 05DB     		blt	.L4
+  12:Core/Src/LX16A.c ****     temp += buf[i];
+  50              		.loc 1 12 5 is_stmt 1 discriminator 3 view .LVU10
+  51              		.loc 1 12 16 is_stmt 0 discriminator 3 view .LVU11
+  52 000c C15C     		ldrb	r1, [r0, r3]	@ zero_extendqisi2
+  53              		.loc 1 12 10 discriminator 3 view .LVU12
+  54 000e 0A44     		add	r2, r2, r1
+  55              	.LVL2:
+  56              		.loc 1 12 10 discriminator 3 view .LVU13
+  57 0010 92B2     		uxth	r2, r2
+  58              	.LVL3:
+  11:Core/Src/LX16A.c ****   for (i = 2; i < buf[3] + 2; i++) {
+  59              		.loc 1 11 31 is_stmt 1 discriminator 3 view .LVU14
+  11:Core/Src/LX16A.c ****   for (i = 2; i < buf[3] + 2; i++) {
+  60              		.loc 1 11 32 is_stmt 0 discriminator 3 view .LVU15
+  61 0012 0133     		adds	r3, r3, #1
+  62              	.LVL4:
+  11:Core/Src/LX16A.c ****   for (i = 2; i < buf[3] + 2; i++) {
+  63              		.loc 1 11 32 discriminator 3 view .LVU16
+  64 0014 DBB2     		uxtb	r3, r3
+  65              	.LVL5:
+  11:Core/Src/LX16A.c ****   for (i = 2; i < buf[3] + 2; i++) {
+  66              		.loc 1 11 32 discriminator 3 view .LVU17
+  67 0016 F5E7     		b	.L2
+  68              	.L4:
+  13:Core/Src/LX16A.c ****   }
+  14:Core/Src/LX16A.c ****   temp = ~temp;
+  69              		.loc 1 14 3 is_stmt 1 view .LVU18
+  70              		.loc 1 14 8 is_stmt 0 view .LVU19
+  71 0018 D043     		mvns	r0, r2
+  72              	.LVL6:
+  15:Core/Src/LX16A.c ****   i = (uint8_t)temp;
+  73              		.loc 1 15 3 is_stmt 1 view .LVU20
+  16:Core/Src/LX16A.c ****   return i;
+  74              		.loc 1 16 3 view .LVU21
+  17:Core/Src/LX16A.c **** }
+  75              		.loc 1 17 1 is_stmt 0 view .LVU22
+  76 001a C0B2     		uxtb	r0, r0
+  77              	.LVL7:
+  78              		.loc 1 17 1 view .LVU23
+  79 001c 7047     		bx	lr
+  80              		.cfi_endproc
+  81              	.LFE65:
+  83              		.section	.text.LobotSerialServoMove,"ax",%progbits
+  84              		.align	1
+  85              		.global	LobotSerialServoMove
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  89              		.fpu softvfp
+  91              	LobotSerialServoMove:
+  92              	.LVL8:
+  93              	.LFB66:
+  18:Core/Src/LX16A.c **** 
+  19:Core/Src/LX16A.c **** void LobotSerialServoMove(UART_HandleTypeDef *huart1, uint8_t id, int16_t position, uint16_t time)
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 3
+
+
+  20:Core/Src/LX16A.c **** {
+  94              		.loc 1 20 1 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 16
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		.loc 1 20 1 is_stmt 0 view .LVU25
+  99 0000 10B5     		push	{r4, lr}
+ 100              	.LCFI0:
+ 101              		.cfi_def_cfa_offset 8
+ 102              		.cfi_offset 4, -8
+ 103              		.cfi_offset 14, -4
+ 104 0002 84B0     		sub	sp, sp, #16
+ 105              	.LCFI1:
+ 106              		.cfi_def_cfa_offset 24
+ 107 0004 0446     		mov	r4, r0
+  21:Core/Src/LX16A.c ****   uint8_t buf[10];
+ 108              		.loc 1 21 3 is_stmt 1 view .LVU26
+  22:Core/Src/LX16A.c ****   if(position < 0)
+ 109              		.loc 1 22 3 view .LVU27
+ 110              		.loc 1 22 5 is_stmt 0 view .LVU28
+ 111 0006 002A     		cmp	r2, #0
+ 112              	.LVL9:
+ 113              		.loc 1 22 5 view .LVU29
+ 114 0008 05DB     		blt	.L7
+ 115              	.LVL10:
+  23:Core/Src/LX16A.c ****     position = 0;
+  24:Core/Src/LX16A.c ****   if(position > 1000)
+ 116              		.loc 1 24 3 is_stmt 1 view .LVU30
+ 117              		.loc 1 24 5 is_stmt 0 view .LVU31
+ 118 000a B2F57A7F 		cmp	r2, #1000
+ 119 000e 03DD     		ble	.L6
+  25:Core/Src/LX16A.c ****     position = 1000;
+ 120              		.loc 1 25 14 view .LVU32
+ 121 0010 4FF47A72 		mov	r2, #1000
+ 122              	.LVL11:
+ 123              		.loc 1 25 14 view .LVU33
+ 124 0014 00E0     		b	.L6
+ 125              	.LVL12:
+ 126              	.L7:
+  23:Core/Src/LX16A.c ****     position = 0;
+ 127              		.loc 1 23 14 view .LVU34
+ 128 0016 0022     		movs	r2, #0
+ 129              	.LVL13:
+ 130              	.L6:
+  26:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 131              		.loc 1 26 3 is_stmt 1 view .LVU35
+ 132              		.loc 1 26 19 is_stmt 0 view .LVU36
+ 133 0018 5520     		movs	r0, #85
+ 134              	.LVL14:
+ 135              		.loc 1 26 19 view .LVU37
+ 136 001a 8DF80500 		strb	r0, [sp, #5]
+ 137              		.loc 1 26 10 view .LVU38
+ 138 001e 8DF80400 		strb	r0, [sp, #4]
+  27:Core/Src/LX16A.c ****   buf[2] = id;
+ 139              		.loc 1 27 3 is_stmt 1 view .LVU39
+ 140              		.loc 1 27 10 is_stmt 0 view .LVU40
+ 141 0022 8DF80610 		strb	r1, [sp, #6]
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 4
+
+
+  28:Core/Src/LX16A.c ****   buf[3] = 7;
+ 142              		.loc 1 28 3 is_stmt 1 view .LVU41
+ 143              		.loc 1 28 10 is_stmt 0 view .LVU42
+ 144 0026 0721     		movs	r1, #7
+ 145              	.LVL15:
+ 146              		.loc 1 28 10 view .LVU43
+ 147 0028 8DF80710 		strb	r1, [sp, #7]
+  29:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_MOVE_TIME_WRITE;
+ 148              		.loc 1 29 3 is_stmt 1 view .LVU44
+ 149              		.loc 1 29 10 is_stmt 0 view .LVU45
+ 150 002c 0121     		movs	r1, #1
+ 151 002e 8DF80810 		strb	r1, [sp, #8]
+  30:Core/Src/LX16A.c ****   buf[5] = GET_LOW_BYTE(position);
+ 152              		.loc 1 30 3 is_stmt 1 view .LVU46
+ 153              		.loc 1 30 10 is_stmt 0 view .LVU47
+ 154 0032 8DF80920 		strb	r2, [sp, #9]
+  31:Core/Src/LX16A.c ****   buf[6] = GET_HIGH_BYTE(position);
+ 155              		.loc 1 31 3 is_stmt 1 view .LVU48
+ 156              		.loc 1 31 12 is_stmt 0 view .LVU49
+ 157 0036 C2F30722 		ubfx	r2, r2, #8, #8
+ 158              	.LVL16:
+ 159              		.loc 1 31 10 view .LVU50
+ 160 003a 8DF80A20 		strb	r2, [sp, #10]
+  32:Core/Src/LX16A.c ****   buf[7] = GET_LOW_BYTE(time);
+ 161              		.loc 1 32 3 is_stmt 1 view .LVU51
+ 162              		.loc 1 32 10 is_stmt 0 view .LVU52
+ 163 003e 8DF80B30 		strb	r3, [sp, #11]
+  33:Core/Src/LX16A.c ****   buf[8] = GET_HIGH_BYTE(time);
+ 164              		.loc 1 33 3 is_stmt 1 view .LVU53
+ 165              		.loc 1 33 12 is_stmt 0 view .LVU54
+ 166 0042 1B0A     		lsrs	r3, r3, #8
+ 167              	.LVL17:
+ 168              		.loc 1 33 10 view .LVU55
+ 169 0044 8DF80C30 		strb	r3, [sp, #12]
+  34:Core/Src/LX16A.c ****   buf[9] = LobotCheckSum(buf);
+ 170              		.loc 1 34 3 is_stmt 1 view .LVU56
+ 171              		.loc 1 34 12 is_stmt 0 view .LVU57
+ 172 0048 01A8     		add	r0, sp, #4
+ 173 004a FFF7FEFF 		bl	LobotCheckSum
+ 174              	.LVL18:
+ 175              		.loc 1 34 10 view .LVU58
+ 176 004e 8DF80D00 		strb	r0, [sp, #13]
+  35:Core/Src/LX16A.c ****   
+  36:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 177              		.loc 1 36 3 is_stmt 1 view .LVU59
+ 178 0052 2046     		mov	r0, r4
+ 179 0054 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 180              	.LVL19:
+  37:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,10,timeout);
+ 181              		.loc 1 37 3 view .LVU60
+ 182 0058 054B     		ldr	r3, .L10
+ 183 005a 1B68     		ldr	r3, [r3]
+ 184 005c 0A22     		movs	r2, #10
+ 185 005e 01A9     		add	r1, sp, #4
+ 186 0060 2046     		mov	r0, r4
+ 187 0062 FFF7FEFF 		bl	HAL_UART_Transmit
+ 188              	.LVL20:
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 5
+
+
+  38:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 189              		.loc 1 38 3 view .LVU61
+ 190 0066 2046     		mov	r0, r4
+ 191 0068 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 192              	.LVL21:
+  39:Core/Src/LX16A.c **** 
+  40:Core/Src/LX16A.c **** }
+ 193              		.loc 1 40 1 is_stmt 0 view .LVU62
+ 194 006c 04B0     		add	sp, sp, #16
+ 195              	.LCFI2:
+ 196              		.cfi_def_cfa_offset 8
+ 197              		@ sp needed
+ 198 006e 10BD     		pop	{r4, pc}
+ 199              	.LVL22:
+ 200              	.L11:
+ 201              		.loc 1 40 1 view .LVU63
+ 202              		.align	2
+ 203              	.L10:
+ 204 0070 00000000 		.word	.LANCHOR0
+ 205              		.cfi_endproc
+ 206              	.LFE66:
+ 208              		.section	.text.LobotSerialServoStopMove,"ax",%progbits
+ 209              		.align	1
+ 210              		.global	LobotSerialServoStopMove
+ 211              		.syntax unified
+ 212              		.thumb
+ 213              		.thumb_func
+ 214              		.fpu softvfp
+ 216              	LobotSerialServoStopMove:
+ 217              	.LVL23:
+ 218              	.LFB67:
+  41:Core/Src/LX16A.c **** 
+  42:Core/Src/LX16A.c **** void LobotSerialServoStopMove(UART_HandleTypeDef *huart1, uint8_t id)
+  43:Core/Src/LX16A.c **** {
+ 219              		.loc 1 43 1 is_stmt 1 view -0
+ 220              		.cfi_startproc
+ 221              		@ args = 0, pretend = 0, frame = 8
+ 222              		@ frame_needed = 0, uses_anonymous_args = 0
+ 223              		.loc 1 43 1 is_stmt 0 view .LVU65
+ 224 0000 10B5     		push	{r4, lr}
+ 225              	.LCFI3:
+ 226              		.cfi_def_cfa_offset 8
+ 227              		.cfi_offset 4, -8
+ 228              		.cfi_offset 14, -4
+ 229 0002 82B0     		sub	sp, sp, #8
+ 230              	.LCFI4:
+ 231              		.cfi_def_cfa_offset 16
+ 232 0004 0446     		mov	r4, r0
+  44:Core/Src/LX16A.c ****   uint8_t buf[6];
+ 233              		.loc 1 44 3 is_stmt 1 view .LVU66
+  45:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 234              		.loc 1 45 3 view .LVU67
+ 235              		.loc 1 45 19 is_stmt 0 view .LVU68
+ 236 0006 5523     		movs	r3, #85
+ 237 0008 8DF80130 		strb	r3, [sp, #1]
+ 238              		.loc 1 45 10 view .LVU69
+ 239 000c 8DF80030 		strb	r3, [sp]
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 6
+
+
+  46:Core/Src/LX16A.c ****   buf[2] = id;
+ 240              		.loc 1 46 3 is_stmt 1 view .LVU70
+ 241              		.loc 1 46 10 is_stmt 0 view .LVU71
+ 242 0010 8DF80210 		strb	r1, [sp, #2]
+  47:Core/Src/LX16A.c ****   buf[3] = 3;
+ 243              		.loc 1 47 3 is_stmt 1 view .LVU72
+ 244              		.loc 1 47 10 is_stmt 0 view .LVU73
+ 245 0014 0323     		movs	r3, #3
+ 246 0016 8DF80330 		strb	r3, [sp, #3]
+  48:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_MOVE_STOP;
+ 247              		.loc 1 48 3 is_stmt 1 view .LVU74
+ 248              		.loc 1 48 10 is_stmt 0 view .LVU75
+ 249 001a 0C23     		movs	r3, #12
+ 250 001c 8DF80430 		strb	r3, [sp, #4]
+  49:Core/Src/LX16A.c ****   buf[5] = LobotCheckSum(buf);
+ 251              		.loc 1 49 3 is_stmt 1 view .LVU76
+ 252              		.loc 1 49 12 is_stmt 0 view .LVU77
+ 253 0020 6846     		mov	r0, sp
+ 254              	.LVL24:
+ 255              		.loc 1 49 12 view .LVU78
+ 256 0022 FFF7FEFF 		bl	LobotCheckSum
+ 257              	.LVL25:
+ 258              		.loc 1 49 10 view .LVU79
+ 259 0026 8DF80500 		strb	r0, [sp, #5]
+  50:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 260              		.loc 1 50 3 is_stmt 1 view .LVU80
+ 261 002a 2046     		mov	r0, r4
+ 262 002c FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 263              	.LVL26:
+  51:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,6,timeout);
+ 264              		.loc 1 51 3 view .LVU81
+ 265 0030 054B     		ldr	r3, .L14
+ 266 0032 1B68     		ldr	r3, [r3]
+ 267 0034 0622     		movs	r2, #6
+ 268 0036 6946     		mov	r1, sp
+ 269 0038 2046     		mov	r0, r4
+ 270 003a FFF7FEFF 		bl	HAL_UART_Transmit
+ 271              	.LVL27:
+  52:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 272              		.loc 1 52 3 view .LVU82
+ 273 003e 2046     		mov	r0, r4
+ 274 0040 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 275              	.LVL28:
+  53:Core/Src/LX16A.c **** }
+ 276              		.loc 1 53 1 is_stmt 0 view .LVU83
+ 277 0044 02B0     		add	sp, sp, #8
+ 278              	.LCFI5:
+ 279              		.cfi_def_cfa_offset 8
+ 280              		@ sp needed
+ 281 0046 10BD     		pop	{r4, pc}
+ 282              	.LVL29:
+ 283              	.L15:
+ 284              		.loc 1 53 1 view .LVU84
+ 285              		.align	2
+ 286              	.L14:
+ 287 0048 00000000 		.word	.LANCHOR0
+ 288              		.cfi_endproc
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 7
+
+
+ 289              	.LFE67:
+ 291              		.section	.text.LobotSerialServoSetID,"ax",%progbits
+ 292              		.align	1
+ 293              		.global	LobotSerialServoSetID
+ 294              		.syntax unified
+ 295              		.thumb
+ 296              		.thumb_func
+ 297              		.fpu softvfp
+ 299              	LobotSerialServoSetID:
+ 300              	.LVL30:
+ 301              	.LFB68:
+  54:Core/Src/LX16A.c **** 
+  55:Core/Src/LX16A.c **** void LobotSerialServoSetID(UART_HandleTypeDef *huart1, uint8_t oldID, uint8_t newID)
+  56:Core/Src/LX16A.c **** {
+ 302              		.loc 1 56 1 is_stmt 1 view -0
+ 303              		.cfi_startproc
+ 304              		@ args = 0, pretend = 0, frame = 8
+ 305              		@ frame_needed = 0, uses_anonymous_args = 0
+ 306              		.loc 1 56 1 is_stmt 0 view .LVU86
+ 307 0000 10B5     		push	{r4, lr}
+ 308              	.LCFI6:
+ 309              		.cfi_def_cfa_offset 8
+ 310              		.cfi_offset 4, -8
+ 311              		.cfi_offset 14, -4
+ 312 0002 82B0     		sub	sp, sp, #8
+ 313              	.LCFI7:
+ 314              		.cfi_def_cfa_offset 16
+ 315 0004 0446     		mov	r4, r0
+  57:Core/Src/LX16A.c ****   uint8_t buf[7];
+ 316              		.loc 1 57 3 is_stmt 1 view .LVU87
+  58:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 317              		.loc 1 58 3 view .LVU88
+ 318              		.loc 1 58 19 is_stmt 0 view .LVU89
+ 319 0006 5523     		movs	r3, #85
+ 320 0008 8DF80130 		strb	r3, [sp, #1]
+ 321              		.loc 1 58 10 view .LVU90
+ 322 000c 8DF80030 		strb	r3, [sp]
+  59:Core/Src/LX16A.c ****   buf[2] = oldID;
+ 323              		.loc 1 59 3 is_stmt 1 view .LVU91
+ 324              		.loc 1 59 10 is_stmt 0 view .LVU92
+ 325 0010 8DF80210 		strb	r1, [sp, #2]
+  60:Core/Src/LX16A.c ****   buf[3] = 4;
+ 326              		.loc 1 60 3 is_stmt 1 view .LVU93
+ 327              		.loc 1 60 10 is_stmt 0 view .LVU94
+ 328 0014 0423     		movs	r3, #4
+ 329 0016 8DF80330 		strb	r3, [sp, #3]
+  61:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_ID_WRITE;
+ 330              		.loc 1 61 3 is_stmt 1 view .LVU95
+ 331              		.loc 1 61 10 is_stmt 0 view .LVU96
+ 332 001a 0D23     		movs	r3, #13
+ 333 001c 8DF80430 		strb	r3, [sp, #4]
+  62:Core/Src/LX16A.c ****   buf[5] = newID;
+ 334              		.loc 1 62 3 is_stmt 1 view .LVU97
+ 335              		.loc 1 62 10 is_stmt 0 view .LVU98
+ 336 0020 8DF80520 		strb	r2, [sp, #5]
+  63:Core/Src/LX16A.c ****   buf[6] = LobotCheckSum(buf);
+ 337              		.loc 1 63 3 is_stmt 1 view .LVU99
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 8
+
+
+ 338              		.loc 1 63 12 is_stmt 0 view .LVU100
+ 339 0024 6846     		mov	r0, sp
+ 340              	.LVL31:
+ 341              		.loc 1 63 12 view .LVU101
+ 342 0026 FFF7FEFF 		bl	LobotCheckSum
+ 343              	.LVL32:
+ 344              		.loc 1 63 10 view .LVU102
+ 345 002a 8DF80600 		strb	r0, [sp, #6]
+  64:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 346              		.loc 1 64 3 is_stmt 1 view .LVU103
+ 347 002e 2046     		mov	r0, r4
+ 348 0030 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 349              	.LVL33:
+  65:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,7,timeout);
+ 350              		.loc 1 65 3 view .LVU104
+ 351 0034 054B     		ldr	r3, .L18
+ 352 0036 1B68     		ldr	r3, [r3]
+ 353 0038 0722     		movs	r2, #7
+ 354 003a 6946     		mov	r1, sp
+ 355 003c 2046     		mov	r0, r4
+ 356 003e FFF7FEFF 		bl	HAL_UART_Transmit
+ 357              	.LVL34:
+  66:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 358              		.loc 1 66 3 view .LVU105
+ 359 0042 2046     		mov	r0, r4
+ 360 0044 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 361              	.LVL35:
+  67:Core/Src/LX16A.c ****   
+  68:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+  69:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO ID WRITE");
+  70:Core/Src/LX16A.c ****   int debug_value_i = 0;
+  71:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+  72:Core/Src/LX16A.c ****   {
+  73:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+  74:Core/Src/LX16A.c ****     Serial.print(":");
+  75:Core/Src/LX16A.c ****   }
+  76:Core/Src/LX16A.c ****   Serial.println(" ");
+  77:Core/Src/LX16A.c **** #endif
+  78:Core/Src/LX16A.c **** 
+  79:Core/Src/LX16A.c **** }
+ 362              		.loc 1 79 1 is_stmt 0 view .LVU106
+ 363 0048 02B0     		add	sp, sp, #8
+ 364              	.LCFI8:
+ 365              		.cfi_def_cfa_offset 8
+ 366              		@ sp needed
+ 367 004a 10BD     		pop	{r4, pc}
+ 368              	.LVL36:
+ 369              	.L19:
+ 370              		.loc 1 79 1 view .LVU107
+ 371              		.align	2
+ 372              	.L18:
+ 373 004c 00000000 		.word	.LANCHOR0
+ 374              		.cfi_endproc
+ 375              	.LFE68:
+ 377              		.section	.text.LobotSerialServoSetMode,"ax",%progbits
+ 378              		.align	1
+ 379              		.global	LobotSerialServoSetMode
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 9
+
+
+ 380              		.syntax unified
+ 381              		.thumb
+ 382              		.thumb_func
+ 383              		.fpu softvfp
+ 385              	LobotSerialServoSetMode:
+ 386              	.LVL37:
+ 387              	.LFB69:
+  80:Core/Src/LX16A.c **** 
+  81:Core/Src/LX16A.c **** void LobotSerialServoSetMode(UART_HandleTypeDef *huart1, uint8_t id, uint8_t Mode, int16_t Speed)
+  82:Core/Src/LX16A.c **** {
+ 388              		.loc 1 82 1 is_stmt 1 view -0
+ 389              		.cfi_startproc
+ 390              		@ args = 0, pretend = 0, frame = 16
+ 391              		@ frame_needed = 0, uses_anonymous_args = 0
+ 392              		.loc 1 82 1 is_stmt 0 view .LVU109
+ 393 0000 10B5     		push	{r4, lr}
+ 394              	.LCFI9:
+ 395              		.cfi_def_cfa_offset 8
+ 396              		.cfi_offset 4, -8
+ 397              		.cfi_offset 14, -4
+ 398 0002 84B0     		sub	sp, sp, #16
+ 399              	.LCFI10:
+ 400              		.cfi_def_cfa_offset 24
+ 401 0004 0446     		mov	r4, r0
+  83:Core/Src/LX16A.c ****   uint8_t buf[10];
+ 402              		.loc 1 83 3 is_stmt 1 view .LVU110
+  84:Core/Src/LX16A.c **** 
+  85:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 403              		.loc 1 85 3 view .LVU111
+ 404              		.loc 1 85 19 is_stmt 0 view .LVU112
+ 405 0006 5520     		movs	r0, #85
+ 406              	.LVL38:
+ 407              		.loc 1 85 19 view .LVU113
+ 408 0008 8DF80500 		strb	r0, [sp, #5]
+ 409              		.loc 1 85 10 view .LVU114
+ 410 000c 8DF80400 		strb	r0, [sp, #4]
+  86:Core/Src/LX16A.c ****   buf[2] = id;
+ 411              		.loc 1 86 3 is_stmt 1 view .LVU115
+ 412              		.loc 1 86 10 is_stmt 0 view .LVU116
+ 413 0010 8DF80610 		strb	r1, [sp, #6]
+  87:Core/Src/LX16A.c ****   buf[3] = 7;
+ 414              		.loc 1 87 3 is_stmt 1 view .LVU117
+ 415              		.loc 1 87 10 is_stmt 0 view .LVU118
+ 416 0014 0721     		movs	r1, #7
+ 417              	.LVL39:
+ 418              		.loc 1 87 10 view .LVU119
+ 419 0016 8DF80710 		strb	r1, [sp, #7]
+  88:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_OR_MOTOR_MODE_WRITE;
+ 420              		.loc 1 88 3 is_stmt 1 view .LVU120
+ 421              		.loc 1 88 10 is_stmt 0 view .LVU121
+ 422 001a 1D21     		movs	r1, #29
+ 423 001c 8DF80810 		strb	r1, [sp, #8]
+  89:Core/Src/LX16A.c ****   buf[5] = Mode;
+ 424              		.loc 1 89 3 is_stmt 1 view .LVU122
+ 425              		.loc 1 89 10 is_stmt 0 view .LVU123
+ 426 0020 8DF80920 		strb	r2, [sp, #9]
+  90:Core/Src/LX16A.c ****   buf[6] = 0;
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 10
+
+
+ 427              		.loc 1 90 3 is_stmt 1 view .LVU124
+ 428              		.loc 1 90 10 is_stmt 0 view .LVU125
+ 429 0024 0022     		movs	r2, #0
+ 430              	.LVL40:
+ 431              		.loc 1 90 10 view .LVU126
+ 432 0026 8DF80A20 		strb	r2, [sp, #10]
+  91:Core/Src/LX16A.c ****   buf[7] = GET_LOW_BYTE((uint16_t)Speed);
+ 433              		.loc 1 91 3 is_stmt 1 view .LVU127
+ 434              		.loc 1 91 10 is_stmt 0 view .LVU128
+ 435 002a 8DF80B30 		strb	r3, [sp, #11]
+  92:Core/Src/LX16A.c ****   buf[8] = GET_HIGH_BYTE((uint16_t)Speed);
+ 436              		.loc 1 92 3 is_stmt 1 view .LVU129
+ 437              		.loc 1 92 12 is_stmt 0 view .LVU130
+ 438 002e C3F30723 		ubfx	r3, r3, #8, #8
+ 439              	.LVL41:
+ 440              		.loc 1 92 10 view .LVU131
+ 441 0032 8DF80C30 		strb	r3, [sp, #12]
+  93:Core/Src/LX16A.c ****   buf[9] = LobotCheckSum(buf);
+ 442              		.loc 1 93 3 is_stmt 1 view .LVU132
+ 443              		.loc 1 93 12 is_stmt 0 view .LVU133
+ 444 0036 01A8     		add	r0, sp, #4
+ 445 0038 FFF7FEFF 		bl	LobotCheckSum
+ 446              	.LVL42:
+ 447              		.loc 1 93 10 view .LVU134
+ 448 003c 8DF80D00 		strb	r0, [sp, #13]
+  94:Core/Src/LX16A.c **** 
+  95:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+  96:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO Set Mode");
+  97:Core/Src/LX16A.c ****   int debug_value_i = 0;
+  98:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+  99:Core/Src/LX16A.c ****   {
+ 100:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+ 101:Core/Src/LX16A.c ****     Serial.print(":");
+ 102:Core/Src/LX16A.c ****   }
+ 103:Core/Src/LX16A.c ****   Serial.println(" ");
+ 104:Core/Src/LX16A.c **** #endif
+ 105:Core/Src/LX16A.c **** 
+ 106:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 449              		.loc 1 106 3 is_stmt 1 view .LVU135
+ 450 0040 2046     		mov	r0, r4
+ 451 0042 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 452              	.LVL43:
+ 107:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,10,timeout);
+ 453              		.loc 1 107 3 view .LVU136
+ 454 0046 064B     		ldr	r3, .L22
+ 455 0048 1B68     		ldr	r3, [r3]
+ 456 004a 0A22     		movs	r2, #10
+ 457 004c 01A9     		add	r1, sp, #4
+ 458 004e 2046     		mov	r0, r4
+ 459 0050 FFF7FEFF 		bl	HAL_UART_Transmit
+ 460              	.LVL44:
+ 108:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 461              		.loc 1 108 3 view .LVU137
+ 462 0054 2046     		mov	r0, r4
+ 463 0056 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 464              	.LVL45:
+ 109:Core/Src/LX16A.c **** }
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 11
+
+
+ 465              		.loc 1 109 1 is_stmt 0 view .LVU138
+ 466 005a 04B0     		add	sp, sp, #16
+ 467              	.LCFI11:
+ 468              		.cfi_def_cfa_offset 8
+ 469              		@ sp needed
+ 470 005c 10BD     		pop	{r4, pc}
+ 471              	.LVL46:
+ 472              	.L23:
+ 473              		.loc 1 109 1 view .LVU139
+ 474 005e 00BF     		.align	2
+ 475              	.L22:
+ 476 0060 00000000 		.word	.LANCHOR0
+ 477              		.cfi_endproc
+ 478              	.LFE69:
+ 480              		.section	.text.LobotSerialServoLoad,"ax",%progbits
+ 481              		.align	1
+ 482              		.global	LobotSerialServoLoad
+ 483              		.syntax unified
+ 484              		.thumb
+ 485              		.thumb_func
+ 486              		.fpu softvfp
+ 488              	LobotSerialServoLoad:
+ 489              	.LVL47:
+ 490              	.LFB70:
+ 110:Core/Src/LX16A.c **** void LobotSerialServoLoad(UART_HandleTypeDef *huart1, uint8_t id)
+ 111:Core/Src/LX16A.c **** {
+ 491              		.loc 1 111 1 is_stmt 1 view -0
+ 492              		.cfi_startproc
+ 493              		@ args = 0, pretend = 0, frame = 8
+ 494              		@ frame_needed = 0, uses_anonymous_args = 0
+ 495              		.loc 1 111 1 is_stmt 0 view .LVU141
+ 496 0000 10B5     		push	{r4, lr}
+ 497              	.LCFI12:
+ 498              		.cfi_def_cfa_offset 8
+ 499              		.cfi_offset 4, -8
+ 500              		.cfi_offset 14, -4
+ 501 0002 82B0     		sub	sp, sp, #8
+ 502              	.LCFI13:
+ 503              		.cfi_def_cfa_offset 16
+ 504 0004 0446     		mov	r4, r0
+ 112:Core/Src/LX16A.c ****   uint8_t buf[7];
+ 505              		.loc 1 112 3 is_stmt 1 view .LVU142
+ 113:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 506              		.loc 1 113 3 view .LVU143
+ 507              		.loc 1 113 19 is_stmt 0 view .LVU144
+ 508 0006 5523     		movs	r3, #85
+ 509 0008 8DF80130 		strb	r3, [sp, #1]
+ 510              		.loc 1 113 10 view .LVU145
+ 511 000c 8DF80030 		strb	r3, [sp]
+ 114:Core/Src/LX16A.c ****   buf[2] = id;
+ 512              		.loc 1 114 3 is_stmt 1 view .LVU146
+ 513              		.loc 1 114 10 is_stmt 0 view .LVU147
+ 514 0010 8DF80210 		strb	r1, [sp, #2]
+ 115:Core/Src/LX16A.c ****   buf[3] = 4;
+ 515              		.loc 1 115 3 is_stmt 1 view .LVU148
+ 516              		.loc 1 115 10 is_stmt 0 view .LVU149
+ 517 0014 0423     		movs	r3, #4
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 12
+
+
+ 518 0016 8DF80330 		strb	r3, [sp, #3]
+ 116:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_LOAD_OR_UNLOAD_WRITE;
+ 519              		.loc 1 116 3 is_stmt 1 view .LVU150
+ 520              		.loc 1 116 10 is_stmt 0 view .LVU151
+ 521 001a 1F23     		movs	r3, #31
+ 522 001c 8DF80430 		strb	r3, [sp, #4]
+ 117:Core/Src/LX16A.c ****   buf[5] = 1;
+ 523              		.loc 1 117 3 is_stmt 1 view .LVU152
+ 524              		.loc 1 117 10 is_stmt 0 view .LVU153
+ 525 0020 0123     		movs	r3, #1
+ 526 0022 8DF80530 		strb	r3, [sp, #5]
+ 118:Core/Src/LX16A.c ****   buf[6] = LobotCheckSum(buf);
+ 527              		.loc 1 118 3 is_stmt 1 view .LVU154
+ 528              		.loc 1 118 12 is_stmt 0 view .LVU155
+ 529 0026 6846     		mov	r0, sp
+ 530              	.LVL48:
+ 531              		.loc 1 118 12 view .LVU156
+ 532 0028 FFF7FEFF 		bl	LobotCheckSum
+ 533              	.LVL49:
+ 534              		.loc 1 118 10 view .LVU157
+ 535 002c 8DF80600 		strb	r0, [sp, #6]
+ 119:Core/Src/LX16A.c ****   
+ 120:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 536              		.loc 1 120 3 is_stmt 1 view .LVU158
+ 537 0030 2046     		mov	r0, r4
+ 538 0032 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 539              	.LVL50:
+ 121:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,7,timeout);
+ 540              		.loc 1 121 3 view .LVU159
+ 541 0036 064B     		ldr	r3, .L26
+ 542 0038 1B68     		ldr	r3, [r3]
+ 543 003a 0722     		movs	r2, #7
+ 544 003c 6946     		mov	r1, sp
+ 545 003e 2046     		mov	r0, r4
+ 546 0040 FFF7FEFF 		bl	HAL_UART_Transmit
+ 547              	.LVL51:
+ 122:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 548              		.loc 1 122 3 view .LVU160
+ 549 0044 2046     		mov	r0, r4
+ 550 0046 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 551              	.LVL52:
+ 123:Core/Src/LX16A.c ****   
+ 124:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 125:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO LOAD WRITE");
+ 126:Core/Src/LX16A.c ****   int debug_value_i = 0;
+ 127:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+ 128:Core/Src/LX16A.c ****   {
+ 129:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+ 130:Core/Src/LX16A.c ****     Serial.print(":");
+ 131:Core/Src/LX16A.c ****   }
+ 132:Core/Src/LX16A.c ****   Serial.println(" ");
+ 133:Core/Src/LX16A.c **** #endif
+ 134:Core/Src/LX16A.c **** 
+ 135:Core/Src/LX16A.c **** }
+ 552              		.loc 1 135 1 is_stmt 0 view .LVU161
+ 553 004a 02B0     		add	sp, sp, #8
+ 554              	.LCFI14:
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 13
+
+
+ 555              		.cfi_def_cfa_offset 8
+ 556              		@ sp needed
+ 557 004c 10BD     		pop	{r4, pc}
+ 558              	.LVL53:
+ 559              	.L27:
+ 560              		.loc 1 135 1 view .LVU162
+ 561 004e 00BF     		.align	2
+ 562              	.L26:
+ 563 0050 00000000 		.word	.LANCHOR0
+ 564              		.cfi_endproc
+ 565              	.LFE70:
+ 567              		.section	.text.LobotSerialServoUnload,"ax",%progbits
+ 568              		.align	1
+ 569              		.global	LobotSerialServoUnload
+ 570              		.syntax unified
+ 571              		.thumb
+ 572              		.thumb_func
+ 573              		.fpu softvfp
+ 575              	LobotSerialServoUnload:
+ 576              	.LVL54:
+ 577              	.LFB71:
+ 136:Core/Src/LX16A.c **** 
+ 137:Core/Src/LX16A.c **** void LobotSerialServoUnload(UART_HandleTypeDef *huart1, uint8_t id)
+ 138:Core/Src/LX16A.c **** {
+ 578              		.loc 1 138 1 is_stmt 1 view -0
+ 579              		.cfi_startproc
+ 580              		@ args = 0, pretend = 0, frame = 8
+ 581              		@ frame_needed = 0, uses_anonymous_args = 0
+ 582              		.loc 1 138 1 is_stmt 0 view .LVU164
+ 583 0000 10B5     		push	{r4, lr}
+ 584              	.LCFI15:
+ 585              		.cfi_def_cfa_offset 8
+ 586              		.cfi_offset 4, -8
+ 587              		.cfi_offset 14, -4
+ 588 0002 82B0     		sub	sp, sp, #8
+ 589              	.LCFI16:
+ 590              		.cfi_def_cfa_offset 16
+ 591 0004 0446     		mov	r4, r0
+ 139:Core/Src/LX16A.c ****   uint8_t buf[7];
+ 592              		.loc 1 139 3 is_stmt 1 view .LVU165
+ 140:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 593              		.loc 1 140 3 view .LVU166
+ 594              		.loc 1 140 19 is_stmt 0 view .LVU167
+ 595 0006 5523     		movs	r3, #85
+ 596 0008 8DF80130 		strb	r3, [sp, #1]
+ 597              		.loc 1 140 10 view .LVU168
+ 598 000c 8DF80030 		strb	r3, [sp]
+ 141:Core/Src/LX16A.c ****   buf[2] = id;
+ 599              		.loc 1 141 3 is_stmt 1 view .LVU169
+ 600              		.loc 1 141 10 is_stmt 0 view .LVU170
+ 601 0010 8DF80210 		strb	r1, [sp, #2]
+ 142:Core/Src/LX16A.c ****   buf[3] = 4;
+ 602              		.loc 1 142 3 is_stmt 1 view .LVU171
+ 603              		.loc 1 142 10 is_stmt 0 view .LVU172
+ 604 0014 0423     		movs	r3, #4
+ 605 0016 8DF80330 		strb	r3, [sp, #3]
+ 143:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_LOAD_OR_UNLOAD_WRITE;
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 14
+
+
+ 606              		.loc 1 143 3 is_stmt 1 view .LVU173
+ 607              		.loc 1 143 10 is_stmt 0 view .LVU174
+ 608 001a 1F23     		movs	r3, #31
+ 609 001c 8DF80430 		strb	r3, [sp, #4]
+ 144:Core/Src/LX16A.c ****   buf[5] = 0;
+ 610              		.loc 1 144 3 is_stmt 1 view .LVU175
+ 611              		.loc 1 144 10 is_stmt 0 view .LVU176
+ 612 0020 0023     		movs	r3, #0
+ 613 0022 8DF80530 		strb	r3, [sp, #5]
+ 145:Core/Src/LX16A.c ****   buf[6] = LobotCheckSum(buf);
+ 614              		.loc 1 145 3 is_stmt 1 view .LVU177
+ 615              		.loc 1 145 12 is_stmt 0 view .LVU178
+ 616 0026 6846     		mov	r0, sp
+ 617              	.LVL55:
+ 618              		.loc 1 145 12 view .LVU179
+ 619 0028 FFF7FEFF 		bl	LobotCheckSum
+ 620              	.LVL56:
+ 621              		.loc 1 145 10 view .LVU180
+ 622 002c 8DF80600 		strb	r0, [sp, #6]
+ 146:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 623              		.loc 1 146 3 is_stmt 1 view .LVU181
+ 624 0030 2046     		mov	r0, r4
+ 625 0032 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 626              	.LVL57:
+ 147:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,7,timeout);
+ 627              		.loc 1 147 3 view .LVU182
+ 628 0036 064B     		ldr	r3, .L30
+ 629 0038 1B68     		ldr	r3, [r3]
+ 630 003a 0722     		movs	r2, #7
+ 631 003c 6946     		mov	r1, sp
+ 632 003e 2046     		mov	r0, r4
+ 633 0040 FFF7FEFF 		bl	HAL_UART_Transmit
+ 634              	.LVL58:
+ 148:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableReceiver(huart1);
+ 635              		.loc 1 148 3 view .LVU183
+ 636 0044 2046     		mov	r0, r4
+ 637 0046 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 638              	.LVL59:
+ 149:Core/Src/LX16A.c ****   
+ 150:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 151:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO LOAD WRITE");
+ 152:Core/Src/LX16A.c ****   int debug_value_i = 0;
+ 153:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+ 154:Core/Src/LX16A.c ****   {
+ 155:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+ 156:Core/Src/LX16A.c ****     Serial.print(":");
+ 157:Core/Src/LX16A.c ****   }
+ 158:Core/Src/LX16A.c ****   Serial.println(" ");
+ 159:Core/Src/LX16A.c **** #endif
+ 160:Core/Src/LX16A.c **** }
+ 639              		.loc 1 160 1 is_stmt 0 view .LVU184
+ 640 004a 02B0     		add	sp, sp, #8
+ 641              	.LCFI17:
+ 642              		.cfi_def_cfa_offset 8
+ 643              		@ sp needed
+ 644 004c 10BD     		pop	{r4, pc}
+ 645              	.LVL60:
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 15
+
+
+ 646              	.L31:
+ 647              		.loc 1 160 1 view .LVU185
+ 648 004e 00BF     		.align	2
+ 649              	.L30:
+ 650 0050 00000000 		.word	.LANCHOR0
+ 651              		.cfi_endproc
+ 652              	.LFE71:
+ 654              		.section	.text.LobotSerialServoReceiveHandle,"ax",%progbits
+ 655              		.align	1
+ 656              		.global	LobotSerialServoReceiveHandle
+ 657              		.syntax unified
+ 658              		.thumb
+ 659              		.thumb_func
+ 660              		.fpu softvfp
+ 662              	LobotSerialServoReceiveHandle:
+ 663              	.LVL61:
+ 664              	.LFB72:
+ 161:Core/Src/LX16A.c **** 
+ 162:Core/Src/LX16A.c **** 
+ 163:Core/Src/LX16A.c **** int LobotSerialServoReceiveHandle(UART_HandleTypeDef *huart1, uint8_t *ret)
+ 164:Core/Src/LX16A.c **** {
+ 665              		.loc 1 164 1 is_stmt 1 view -0
+ 666              		.cfi_startproc
+ 667              		@ args = 0, pretend = 0, frame = 40
+ 668              		@ frame_needed = 0, uses_anonymous_args = 0
+ 669              		.loc 1 164 1 is_stmt 0 view .LVU187
+ 670 0000 2DE9F047 		push	{r4, r5, r6, r7, r8, r9, r10, lr}
+ 671              	.LCFI18:
+ 672              		.cfi_def_cfa_offset 32
+ 673              		.cfi_offset 4, -32
+ 674              		.cfi_offset 5, -28
+ 675              		.cfi_offset 6, -24
+ 676              		.cfi_offset 7, -20
+ 677              		.cfi_offset 8, -16
+ 678              		.cfi_offset 9, -12
+ 679              		.cfi_offset 10, -8
+ 680              		.cfi_offset 14, -4
+ 681 0004 8AB0     		sub	sp, sp, #40
+ 682              	.LCFI19:
+ 683              		.cfi_def_cfa_offset 72
+ 684 0006 0546     		mov	r5, r0
+ 685 0008 8A46     		mov	r10, r1
+ 165:Core/Src/LX16A.c ****   bool frameStarted = false;
+ 686              		.loc 1 165 3 is_stmt 1 view .LVU188
+ 687              	.LVL62:
+ 166:Core/Src/LX16A.c ****   //bool receiveFinished = false;
+ 167:Core/Src/LX16A.c ****   uint8_t frameCount = 0;
+ 688              		.loc 1 167 3 view .LVU189
+ 168:Core/Src/LX16A.c ****   uint8_t dataCount = 0;
+ 689              		.loc 1 168 3 view .LVU190
+ 169:Core/Src/LX16A.c ****   uint8_t dataLength = 2;
+ 690              		.loc 1 169 3 view .LVU191
+ 170:Core/Src/LX16A.c ****   uint8_t rxBuf;
+ 691              		.loc 1 170 3 view .LVU192
+ 171:Core/Src/LX16A.c ****   uint8_t recvBuf[32];
+ 692              		.loc 1 171 3 view .LVU193
+ 172:Core/Src/LX16A.c ****   //uint8_t i;
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 16
+
+
+ 173:Core/Src/LX16A.c **** 
+ 174:Core/Src/LX16A.c ****   while (!HAL_HalfDuplex_EnableReceiver(huart1)) {
+ 693              		.loc 1 174 3 view .LVU194
+ 169:Core/Src/LX16A.c ****   uint8_t rxBuf;
+ 694              		.loc 1 169 11 is_stmt 0 view .LVU195
+ 695 000a 4FF00209 		mov	r9, #2
+ 168:Core/Src/LX16A.c ****   uint8_t dataLength = 2;
+ 696              		.loc 1 168 11 view .LVU196
+ 697 000e 0024     		movs	r4, #0
+ 167:Core/Src/LX16A.c ****   uint8_t dataCount = 0;
+ 698              		.loc 1 167 11 view .LVU197
+ 699 0010 A046     		mov	r8, r4
+ 165:Core/Src/LX16A.c ****   //bool receiveFinished = false;
+ 700              		.loc 1 165 8 view .LVU198
+ 701 0012 2646     		mov	r6, r4
+ 702              		.loc 1 174 9 view .LVU199
+ 703 0014 13E0     		b	.L33
+ 704              	.LVL63:
+ 705              	.L46:
+ 175:Core/Src/LX16A.c ****     
+ 176:Core/Src/LX16A.c ****     HAL_UART_Receive(huart1,&rxBuf,8,100);
+ 177:Core/Src/LX16A.c ****     
+ 178:Core/Src/LX16A.c ****     if (!frameStarted) {
+ 179:Core/Src/LX16A.c ****       if (rxBuf == LOBOT_SERVO_FRAME_HEADER) {
+ 180:Core/Src/LX16A.c ****         frameCount++;
+ 706              		.loc 1 180 9 is_stmt 1 view .LVU200
+ 707              		.loc 1 180 19 is_stmt 0 view .LVU201
+ 708 0016 08F10108 		add	r8, r8, #1
+ 709              	.LVL64:
+ 710              		.loc 1 180 19 view .LVU202
+ 711 001a 5FFA88F8 		uxtb	r8, r8
+ 712              	.LVL65:
+ 181:Core/Src/LX16A.c ****         if (frameCount == 2) {
+ 713              		.loc 1 181 9 is_stmt 1 view .LVU203
+ 714              		.loc 1 181 12 is_stmt 0 view .LVU204
+ 715 001e B8F1020F 		cmp	r8, #2
+ 716 0022 1FD1     		bne	.L34
+ 182:Core/Src/LX16A.c ****           frameCount = 0;
+ 717              		.loc 1 182 22 view .LVU205
+ 718 0024 B846     		mov	r8, r7
+ 719              	.LVL66:
+ 183:Core/Src/LX16A.c ****           frameStarted = true;
+ 184:Core/Src/LX16A.c ****           dataCount = 1;
+ 720              		.loc 1 184 21 view .LVU206
+ 721 0026 0124     		movs	r4, #1
+ 722              	.LVL67:
+ 183:Core/Src/LX16A.c ****           frameStarted = true;
+ 723              		.loc 1 183 24 view .LVU207
+ 724 0028 2646     		mov	r6, r4
+ 725              	.LVL68:
+ 183:Core/Src/LX16A.c ****           frameStarted = true;
+ 726              		.loc 1 183 24 view .LVU208
+ 727 002a 1BE0     		b	.L34
+ 728              	.LVL69:
+ 729              	.L41:
+ 185:Core/Src/LX16A.c ****         }
+ 186:Core/Src/LX16A.c ****       }
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 17
+
+
+ 187:Core/Src/LX16A.c ****       else {
+ 188:Core/Src/LX16A.c ****         frameStarted = false;
+ 189:Core/Src/LX16A.c ****         dataCount = 0;
+ 190:Core/Src/LX16A.c ****         frameCount = 0;
+ 191:Core/Src/LX16A.c ****       }
+ 192:Core/Src/LX16A.c ****     }
+ 193:Core/Src/LX16A.c ****     if (frameStarted) {
+ 194:Core/Src/LX16A.c ****       recvBuf[dataCount] = (uint8_t)rxBuf;
+ 195:Core/Src/LX16A.c ****       if (dataCount == 3) {
+ 196:Core/Src/LX16A.c ****         dataLength = recvBuf[dataCount];
+ 197:Core/Src/LX16A.c ****         if (dataLength < 3 || dataCount > 7) {
+ 198:Core/Src/LX16A.c ****           dataLength = 2;
+ 730              		.loc 1 198 22 view .LVU209
+ 731 002c 4FF00209 		mov	r9, #2
+ 199:Core/Src/LX16A.c ****           frameStarted = false;
+ 732              		.loc 1 199 24 view .LVU210
+ 733 0030 0026     		movs	r6, #0
+ 734              	.LVL70:
+ 735              	.L36:
+ 200:Core/Src/LX16A.c ****         }
+ 201:Core/Src/LX16A.c ****       }
+ 202:Core/Src/LX16A.c ****       dataCount++;
+ 736              		.loc 1 202 7 is_stmt 1 view .LVU211
+ 737              		.loc 1 202 16 is_stmt 0 view .LVU212
+ 738 0032 0134     		adds	r4, r4, #1
+ 739              	.LVL71:
+ 740              		.loc 1 202 16 view .LVU213
+ 741 0034 E4B2     		uxtb	r4, r4
+ 742              	.LVL72:
+ 203:Core/Src/LX16A.c ****       if (dataCount == dataLength + 3) {
+ 743              		.loc 1 203 7 is_stmt 1 view .LVU214
+ 744              		.loc 1 203 35 is_stmt 0 view .LVU215
+ 745 0036 09F10303 		add	r3, r9, #3
+ 746              		.loc 1 203 10 view .LVU216
+ 747 003a 9C42     		cmp	r4, r3
+ 748 003c 26D0     		beq	.L45
+ 749              	.LVL73:
+ 750              	.L33:
+ 174:Core/Src/LX16A.c ****     
+ 751              		.loc 1 174 9 is_stmt 1 view .LVU217
+ 174:Core/Src/LX16A.c ****     
+ 752              		.loc 1 174 11 is_stmt 0 view .LVU218
+ 753 003e 2846     		mov	r0, r5
+ 754 0040 FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 755              	.LVL74:
+ 174:Core/Src/LX16A.c ****     
+ 756              		.loc 1 174 9 view .LVU219
+ 757 0044 0746     		mov	r7, r0
+ 758 0046 68BB     		cbnz	r0, .L32
+ 176:Core/Src/LX16A.c ****     
+ 759              		.loc 1 176 5 is_stmt 1 view .LVU220
+ 760 0048 6423     		movs	r3, #100
+ 761 004a 0822     		movs	r2, #8
+ 762 004c 0DF12701 		add	r1, sp, #39
+ 763 0050 2846     		mov	r0, r5
+ 764 0052 FFF7FEFF 		bl	HAL_UART_Receive
+ 765              	.LVL75:
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 18
+
+
+ 178:Core/Src/LX16A.c ****       if (rxBuf == LOBOT_SERVO_FRAME_HEADER) {
+ 766              		.loc 1 178 5 view .LVU221
+ 178:Core/Src/LX16A.c ****       if (rxBuf == LOBOT_SERVO_FRAME_HEADER) {
+ 767              		.loc 1 178 8 is_stmt 0 view .LVU222
+ 768 0056 2EB9     		cbnz	r6, .L34
+ 179:Core/Src/LX16A.c ****         frameCount++;
+ 769              		.loc 1 179 7 is_stmt 1 view .LVU223
+ 179:Core/Src/LX16A.c ****         frameCount++;
+ 770              		.loc 1 179 17 is_stmt 0 view .LVU224
+ 771 0058 9DF82730 		ldrb	r3, [sp, #39]	@ zero_extendqisi2
+ 179:Core/Src/LX16A.c ****         frameCount++;
+ 772              		.loc 1 179 10 view .LVU225
+ 773 005c 552B     		cmp	r3, #85
+ 774 005e DAD0     		beq	.L46
+ 189:Core/Src/LX16A.c ****         frameCount = 0;
+ 775              		.loc 1 189 19 view .LVU226
+ 776 0060 3C46     		mov	r4, r7
+ 777              	.LVL76:
+ 190:Core/Src/LX16A.c ****       }
+ 778              		.loc 1 190 20 view .LVU227
+ 779 0062 B846     		mov	r8, r7
+ 780              	.LVL77:
+ 781              	.L34:
+ 193:Core/Src/LX16A.c ****       recvBuf[dataCount] = (uint8_t)rxBuf;
+ 782              		.loc 1 193 5 is_stmt 1 view .LVU228
+ 193:Core/Src/LX16A.c ****       recvBuf[dataCount] = (uint8_t)rxBuf;
+ 783              		.loc 1 193 8 is_stmt 0 view .LVU229
+ 784 0064 002E     		cmp	r6, #0
+ 785 0066 EAD0     		beq	.L33
+ 194:Core/Src/LX16A.c ****       if (dataCount == 3) {
+ 786              		.loc 1 194 7 is_stmt 1 view .LVU230
+ 194:Core/Src/LX16A.c ****       if (dataCount == 3) {
+ 787              		.loc 1 194 26 is_stmt 0 view .LVU231
+ 788 0068 9DF82730 		ldrb	r3, [sp, #39]	@ zero_extendqisi2
+ 789 006c 0AAA     		add	r2, sp, #40
+ 790 006e 2244     		add	r2, r2, r4
+ 791 0070 02F8243C 		strb	r3, [r2, #-36]
+ 195:Core/Src/LX16A.c ****         dataLength = recvBuf[dataCount];
+ 792              		.loc 1 195 7 is_stmt 1 view .LVU232
+ 195:Core/Src/LX16A.c ****         dataLength = recvBuf[dataCount];
+ 793              		.loc 1 195 10 is_stmt 0 view .LVU233
+ 794 0074 032C     		cmp	r4, #3
+ 795 0076 DCD1     		bne	.L36
+ 196:Core/Src/LX16A.c ****         if (dataLength < 3 || dataCount > 7) {
+ 796              		.loc 1 196 9 is_stmt 1 view .LVU234
+ 797              	.LVL78:
+ 197:Core/Src/LX16A.c ****           dataLength = 2;
+ 798              		.loc 1 197 9 view .LVU235
+ 197:Core/Src/LX16A.c ****           dataLength = 2;
+ 799              		.loc 1 197 12 is_stmt 0 view .LVU236
+ 800 0078 022B     		cmp	r3, #2
+ 801 007a D7D9     		bls	.L41
+ 197:Core/Src/LX16A.c ****           dataLength = 2;
+ 802              		.loc 1 197 28 discriminator 1 view .LVU237
+ 803 007c 072C     		cmp	r4, #7
+ 804 007e 01D8     		bhi	.L42
+ 196:Core/Src/LX16A.c ****         if (dataLength < 3 || dataCount > 7) {
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 19
+
+
+ 805              		.loc 1 196 20 view .LVU238
+ 806 0080 9946     		mov	r9, r3
+ 807 0082 D6E7     		b	.L36
+ 808              	.L42:
+ 198:Core/Src/LX16A.c ****           frameStarted = false;
+ 809              		.loc 1 198 22 view .LVU239
+ 810 0084 4FF00209 		mov	r9, #2
+ 199:Core/Src/LX16A.c ****         }
+ 811              		.loc 1 199 24 view .LVU240
+ 812 0088 0026     		movs	r6, #0
+ 813              	.LVL79:
+ 199:Core/Src/LX16A.c ****         }
+ 814              		.loc 1 199 24 view .LVU241
+ 815 008a D2E7     		b	.L36
+ 816              	.LVL80:
+ 817              	.L45:
+ 204:Core/Src/LX16A.c ****         
+ 205:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 206:Core/Src/LX16A.c ****         Serial.print("RECEIVE DATA:");
+ 207:Core/Src/LX16A.c ****         for (i = 0; i < dataCount; i++) {
+ 208:Core/Src/LX16A.c ****           Serial.print(recvBuf[i], HEX);
+ 209:Core/Src/LX16A.c ****           Serial.print(":");
+ 210:Core/Src/LX16A.c ****         }
+ 211:Core/Src/LX16A.c ****         Serial.println(" ");
+ 212:Core/Src/LX16A.c **** #endif
+ 213:Core/Src/LX16A.c **** 
+ 214:Core/Src/LX16A.c ****         if (LobotCheckSum(recvBuf) == recvBuf[dataCount - 1]) {
+ 818              		.loc 1 214 9 is_stmt 1 view .LVU242
+ 819              		.loc 1 214 13 is_stmt 0 view .LVU243
+ 820 008c 01A8     		add	r0, sp, #4
+ 821 008e FFF7FEFF 		bl	LobotCheckSum
+ 822              	.LVL81:
+ 823              		.loc 1 214 57 view .LVU244
+ 824 0092 671E     		subs	r7, r4, #1
+ 825              		.loc 1 214 46 view .LVU245
+ 826 0094 0AAB     		add	r3, sp, #40
+ 827 0096 1F44     		add	r7, r7, r3
+ 828 0098 17F8243C 		ldrb	r3, [r7, #-36]	@ zero_extendqisi2
+ 829              		.loc 1 214 12 view .LVU246
+ 830 009c 9842     		cmp	r0, r3
+ 831 009e 04D0     		beq	.L47
+ 215:Core/Src/LX16A.c ****           
+ 216:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 217:Core/Src/LX16A.c ****           Serial.println("Check SUM OK!!");
+ 218:Core/Src/LX16A.c ****           Serial.println("");
+ 219:Core/Src/LX16A.c **** #endif
+ 220:Core/Src/LX16A.c **** 
+ 221:Core/Src/LX16A.c ****           frameStarted = false;
+ 222:Core/Src/LX16A.c ****           memcpy(ret, recvBuf + 4, dataLength);
+ 223:Core/Src/LX16A.c ****           return 1;
+ 224:Core/Src/LX16A.c ****         }
+ 225:Core/Src/LX16A.c ****         return -1;
+ 832              		.loc 1 225 16 view .LVU247
+ 833 00a0 4FF0FF30 		mov	r0, #-1
+ 834              	.LVL82:
+ 835              	.L32:
+ 226:Core/Src/LX16A.c ****       }
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 20
+
+
+ 227:Core/Src/LX16A.c ****         
+ 228:Core/Src/LX16A.c ****     }
+ 229:Core/Src/LX16A.c ****       
+ 230:Core/Src/LX16A.c ****   }
+ 231:Core/Src/LX16A.c ****   
+ 232:Core/Src/LX16A.c **** }
+ 836              		.loc 1 232 1 view .LVU248
+ 837 00a4 0AB0     		add	sp, sp, #40
+ 838              	.LCFI20:
+ 839              		.cfi_remember_state
+ 840              		.cfi_def_cfa_offset 32
+ 841              		@ sp needed
+ 842 00a6 BDE8F087 		pop	{r4, r5, r6, r7, r8, r9, r10, pc}
+ 843              	.LVL83:
+ 844              	.L47:
+ 845              	.LCFI21:
+ 846              		.cfi_restore_state
+ 221:Core/Src/LX16A.c ****           memcpy(ret, recvBuf + 4, dataLength);
+ 847              		.loc 1 221 11 is_stmt 1 view .LVU249
+ 222:Core/Src/LX16A.c ****           return 1;
+ 848              		.loc 1 222 11 view .LVU250
+ 849 00aa 4A46     		mov	r2, r9
+ 850 00ac 02A9     		add	r1, sp, #8
+ 851 00ae 5046     		mov	r0, r10
+ 852 00b0 FFF7FEFF 		bl	memcpy
+ 853              	.LVL84:
+ 223:Core/Src/LX16A.c ****         }
+ 854              		.loc 1 223 11 view .LVU251
+ 223:Core/Src/LX16A.c ****         }
+ 855              		.loc 1 223 18 is_stmt 0 view .LVU252
+ 856 00b4 0120     		movs	r0, #1
+ 857 00b6 F5E7     		b	.L32
+ 858              		.cfi_endproc
+ 859              	.LFE72:
+ 861              		.section	.text.LobotSerialServoReadPosition,"ax",%progbits
+ 862              		.align	1
+ 863              		.global	LobotSerialServoReadPosition
+ 864              		.syntax unified
+ 865              		.thumb
+ 866              		.thumb_func
+ 867              		.fpu softvfp
+ 869              	LobotSerialServoReadPosition:
+ 870              	.LVL85:
+ 871              	.LFB73:
+ 233:Core/Src/LX16A.c **** 
+ 234:Core/Src/LX16A.c **** 
+ 235:Core/Src/LX16A.c **** int LobotSerialServoReadPosition(UART_HandleTypeDef *huart1, uint8_t id)
+ 236:Core/Src/LX16A.c **** {
+ 872              		.loc 1 236 1 is_stmt 1 view -0
+ 873              		.cfi_startproc
+ 874              		@ args = 0, pretend = 0, frame = 8
+ 875              		@ frame_needed = 0, uses_anonymous_args = 0
+ 876              		.loc 1 236 1 is_stmt 0 view .LVU254
+ 877 0000 30B5     		push	{r4, r5, lr}
+ 878              	.LCFI22:
+ 879              		.cfi_def_cfa_offset 12
+ 880              		.cfi_offset 4, -12
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 21
+
+
+ 881              		.cfi_offset 5, -8
+ 882              		.cfi_offset 14, -4
+ 883 0002 83B0     		sub	sp, sp, #12
+ 884              	.LCFI23:
+ 885              		.cfi_def_cfa_offset 24
+ 886 0004 0546     		mov	r5, r0
+ 237:Core/Src/LX16A.c ****   int count = 10000;
+ 887              		.loc 1 237 3 is_stmt 1 view .LVU255
+ 888              	.LVL86:
+ 238:Core/Src/LX16A.c ****   int ret;
+ 889              		.loc 1 238 3 view .LVU256
+ 239:Core/Src/LX16A.c ****   uint8_t buf[6];
+ 890              		.loc 1 239 3 view .LVU257
+ 240:Core/Src/LX16A.c **** 
+ 241:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 891              		.loc 1 241 3 view .LVU258
+ 892              		.loc 1 241 19 is_stmt 0 view .LVU259
+ 893 0006 5523     		movs	r3, #85
+ 894 0008 8DF80130 		strb	r3, [sp, #1]
+ 895              		.loc 1 241 10 view .LVU260
+ 896 000c 8DF80030 		strb	r3, [sp]
+ 242:Core/Src/LX16A.c ****   buf[2] = id;
+ 897              		.loc 1 242 3 is_stmt 1 view .LVU261
+ 898              		.loc 1 242 10 is_stmt 0 view .LVU262
+ 899 0010 8DF80210 		strb	r1, [sp, #2]
+ 243:Core/Src/LX16A.c ****   buf[3] = 3;
+ 900              		.loc 1 243 3 is_stmt 1 view .LVU263
+ 901              		.loc 1 243 10 is_stmt 0 view .LVU264
+ 902 0014 0323     		movs	r3, #3
+ 903 0016 8DF80330 		strb	r3, [sp, #3]
+ 244:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_POS_READ;
+ 904              		.loc 1 244 3 is_stmt 1 view .LVU265
+ 905              		.loc 1 244 10 is_stmt 0 view .LVU266
+ 906 001a 1C23     		movs	r3, #28
+ 907 001c 8DF80430 		strb	r3, [sp, #4]
+ 245:Core/Src/LX16A.c ****   buf[5] = LobotCheckSum(buf);
+ 908              		.loc 1 245 3 is_stmt 1 view .LVU267
+ 909              		.loc 1 245 12 is_stmt 0 view .LVU268
+ 910 0020 6846     		mov	r0, sp
+ 911              	.LVL87:
+ 912              		.loc 1 245 12 view .LVU269
+ 913 0022 FFF7FEFF 		bl	LobotCheckSum
+ 914              	.LVL88:
+ 915              		.loc 1 245 10 view .LVU270
+ 916 0026 8DF80500 		strb	r0, [sp, #5]
+ 246:Core/Src/LX16A.c **** 
+ 247:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 248:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO Pos READ");
+ 249:Core/Src/LX16A.c ****   int debug_value_i = 0;
+ 250:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+ 251:Core/Src/LX16A.c ****   {
+ 252:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+ 253:Core/Src/LX16A.c ****     Serial.print(":");
+ 254:Core/Src/LX16A.c ****   }
+ 255:Core/Src/LX16A.c ****   Serial.println(" ");
+ 256:Core/Src/LX16A.c **** #endif
+ 257:Core/Src/LX16A.c **** 
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 22
+
+
+ 258:Core/Src/LX16A.c ****   while (!HAL_HalfDuplex_EnableReceiver(huart1))
+ 917              		.loc 1 258 3 is_stmt 1 view .LVU271
+ 918              	.L49:
+ 919              		.loc 1 258 9 view .LVU272
+ 920              		.loc 1 258 11 is_stmt 0 view .LVU273
+ 921 002a 2846     		mov	r0, r5
+ 922 002c FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 923              	.LVL89:
+ 924              		.loc 1 258 9 view .LVU274
+ 925 0030 30B9     		cbnz	r0, .L57
+ 259:Core/Src/LX16A.c ****       HAL_UART_Receive(huart1,buf,8,100);
+ 926              		.loc 1 259 7 is_stmt 1 view .LVU275
+ 927 0032 6423     		movs	r3, #100
+ 928 0034 0822     		movs	r2, #8
+ 929 0036 6946     		mov	r1, sp
+ 930 0038 2846     		mov	r0, r5
+ 931 003a FFF7FEFF 		bl	HAL_UART_Receive
+ 932              	.LVL90:
+ 933 003e F4E7     		b	.L49
+ 934              	.L57:
+ 260:Core/Src/LX16A.c **** 
+ 261:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 935              		.loc 1 261 3 view .LVU276
+ 936 0040 2846     		mov	r0, r5
+ 937 0042 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 938              	.LVL91:
+ 262:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,6,timeout);
+ 939              		.loc 1 262 3 view .LVU277
+ 940 0046 114B     		ldr	r3, .L59
+ 941 0048 1B68     		ldr	r3, [r3]
+ 942 004a 0622     		movs	r2, #6
+ 943 004c 6946     		mov	r1, sp
+ 944 004e 2846     		mov	r0, r5
+ 945 0050 FFF7FEFF 		bl	HAL_UART_Transmit
+ 946              	.LVL92:
+ 263:Core/Src/LX16A.c **** 
+ 264:Core/Src/LX16A.c ****   while (!HAL_HalfDuplex_EnableReceiver(huart1)) {
+ 947              		.loc 1 264 3 view .LVU278
+ 237:Core/Src/LX16A.c ****   int ret;
+ 948              		.loc 1 237 7 is_stmt 0 view .LVU279
+ 949 0054 42F21074 		movw	r4, #10000
+ 950              	.LVL93:
+ 951              	.L51:
+ 952              		.loc 1 264 9 is_stmt 1 view .LVU280
+ 953              		.loc 1 264 11 is_stmt 0 view .LVU281
+ 954 0058 2846     		mov	r0, r5
+ 955 005a FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 956              	.LVL94:
+ 957              		.loc 1 264 9 view .LVU282
+ 958 005e 18B9     		cbnz	r0, .L58
+ 265:Core/Src/LX16A.c ****     count -= 1;
+ 959              		.loc 1 265 5 is_stmt 1 view .LVU283
+ 960              	.LVL95:
+ 266:Core/Src/LX16A.c ****     if (count < 0)
+ 961              		.loc 1 266 5 view .LVU284
+ 962              		.loc 1 266 8 is_stmt 0 view .LVU285
+ 963 0060 013C     		subs	r4, r4, #1
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 23
+
+
+ 964              	.LVL96:
+ 965              		.loc 1 266 8 view .LVU286
+ 966 0062 F9D5     		bpl	.L51
+ 267:Core/Src/LX16A.c ****       return -2048;
+ 967              		.loc 1 267 14 view .LVU287
+ 968 0064 0A48     		ldr	r0, .L59+4
+ 969 0066 0CE0     		b	.L48
+ 970              	.L58:
+ 268:Core/Src/LX16A.c ****   }
+ 269:Core/Src/LX16A.c **** 
+ 270:Core/Src/LX16A.c ****   if (LobotSerialServoReceiveHandle(huart1, buf) > 0)
+ 971              		.loc 1 270 3 is_stmt 1 view .LVU288
+ 972              		.loc 1 270 7 is_stmt 0 view .LVU289
+ 973 0068 6946     		mov	r1, sp
+ 974 006a 2846     		mov	r0, r5
+ 975 006c FFF7FEFF 		bl	LobotSerialServoReceiveHandle
+ 976              	.LVL97:
+ 977              		.loc 1 270 6 view .LVU290
+ 978 0070 0028     		cmp	r0, #0
+ 979 0072 08DD     		ble	.L55
+ 271:Core/Src/LX16A.c ****     ret = (int16_t)BYTE_TO_HW(buf[2], buf[1]);
+ 980              		.loc 1 271 5 is_stmt 1 view .LVU291
+ 981              		.loc 1 271 20 is_stmt 0 view .LVU292
+ 982 0074 9DF80230 		ldrb	r3, [sp, #2]	@ zero_extendqisi2
+ 983 0078 9DF80100 		ldrb	r0, [sp, #1]	@ zero_extendqisi2
+ 984              		.loc 1 271 11 view .LVU293
+ 985 007c 40EA0320 		orr	r0, r0, r3, lsl #8
+ 986 0080 00B2     		sxth	r0, r0
+ 987              	.LVL98:
+ 988              	.L48:
+ 272:Core/Src/LX16A.c ****   else
+ 273:Core/Src/LX16A.c ****     ret = -2048;
+ 274:Core/Src/LX16A.c **** 
+ 275:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 276:Core/Src/LX16A.c ****   Serial.println(ret);
+ 277:Core/Src/LX16A.c **** #endif
+ 278:Core/Src/LX16A.c ****   return ret;
+ 279:Core/Src/LX16A.c **** }
+ 989              		.loc 1 279 1 view .LVU294
+ 990 0082 03B0     		add	sp, sp, #12
+ 991              	.LCFI24:
+ 992              		.cfi_remember_state
+ 993              		.cfi_def_cfa_offset 12
+ 994              		@ sp needed
+ 995 0084 30BD     		pop	{r4, r5, pc}
+ 996              	.LVL99:
+ 997              	.L55:
+ 998              	.LCFI25:
+ 999              		.cfi_restore_state
+ 273:Core/Src/LX16A.c **** 
+ 1000              		.loc 1 273 9 view .LVU295
+ 1001 0086 0248     		ldr	r0, .L59+4
+ 1002 0088 FBE7     		b	.L48
+ 1003              	.L60:
+ 1004 008a 00BF     		.align	2
+ 1005              	.L59:
+ 1006 008c 00000000 		.word	.LANCHOR0
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 24
+
+
+ 1007 0090 00F8FFFF 		.word	-2048
+ 1008              		.cfi_endproc
+ 1009              	.LFE73:
+ 1011              		.section	.text.LobotSerialServoReadVin,"ax",%progbits
+ 1012              		.align	1
+ 1013              		.global	LobotSerialServoReadVin
+ 1014              		.syntax unified
+ 1015              		.thumb
+ 1016              		.thumb_func
+ 1017              		.fpu softvfp
+ 1019              	LobotSerialServoReadVin:
+ 1020              	.LVL100:
+ 1021              	.LFB74:
+ 280:Core/Src/LX16A.c **** int LobotSerialServoReadVin(UART_HandleTypeDef *huart1, uint8_t id)
+ 281:Core/Src/LX16A.c **** {
+ 1022              		.loc 1 281 1 is_stmt 1 view -0
+ 1023              		.cfi_startproc
+ 1024              		@ args = 0, pretend = 0, frame = 8
+ 1025              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1026              		.loc 1 281 1 is_stmt 0 view .LVU297
+ 1027 0000 30B5     		push	{r4, r5, lr}
+ 1028              	.LCFI26:
+ 1029              		.cfi_def_cfa_offset 12
+ 1030              		.cfi_offset 4, -12
+ 1031              		.cfi_offset 5, -8
+ 1032              		.cfi_offset 14, -4
+ 1033 0002 83B0     		sub	sp, sp, #12
+ 1034              	.LCFI27:
+ 1035              		.cfi_def_cfa_offset 24
+ 1036 0004 0546     		mov	r5, r0
+ 282:Core/Src/LX16A.c ****   int count = 10000;
+ 1037              		.loc 1 282 3 is_stmt 1 view .LVU298
+ 1038              	.LVL101:
+ 283:Core/Src/LX16A.c ****   int ret;
+ 1039              		.loc 1 283 3 view .LVU299
+ 284:Core/Src/LX16A.c ****   uint8_t buf[6];
+ 1040              		.loc 1 284 3 view .LVU300
+ 285:Core/Src/LX16A.c **** 
+ 286:Core/Src/LX16A.c ****   buf[0] = buf[1] = LOBOT_SERVO_FRAME_HEADER;
+ 1041              		.loc 1 286 3 view .LVU301
+ 1042              		.loc 1 286 19 is_stmt 0 view .LVU302
+ 1043 0006 5523     		movs	r3, #85
+ 1044 0008 8DF80130 		strb	r3, [sp, #1]
+ 1045              		.loc 1 286 10 view .LVU303
+ 1046 000c 8DF80030 		strb	r3, [sp]
+ 287:Core/Src/LX16A.c ****   buf[2] = id;
+ 1047              		.loc 1 287 3 is_stmt 1 view .LVU304
+ 1048              		.loc 1 287 10 is_stmt 0 view .LVU305
+ 1049 0010 8DF80210 		strb	r1, [sp, #2]
+ 288:Core/Src/LX16A.c ****   buf[3] = 3;
+ 1050              		.loc 1 288 3 is_stmt 1 view .LVU306
+ 1051              		.loc 1 288 10 is_stmt 0 view .LVU307
+ 1052 0014 0323     		movs	r3, #3
+ 1053 0016 8DF80330 		strb	r3, [sp, #3]
+ 289:Core/Src/LX16A.c ****   buf[4] = LOBOT_SERVO_VIN_READ;
+ 1054              		.loc 1 289 3 is_stmt 1 view .LVU308
+ 1055              		.loc 1 289 10 is_stmt 0 view .LVU309
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 25
+
+
+ 1056 001a 1B23     		movs	r3, #27
+ 1057 001c 8DF80430 		strb	r3, [sp, #4]
+ 290:Core/Src/LX16A.c ****   buf[5] = LobotCheckSum(buf);
+ 1058              		.loc 1 290 3 is_stmt 1 view .LVU310
+ 1059              		.loc 1 290 12 is_stmt 0 view .LVU311
+ 1060 0020 6846     		mov	r0, sp
+ 1061              	.LVL102:
+ 1062              		.loc 1 290 12 view .LVU312
+ 1063 0022 FFF7FEFF 		bl	LobotCheckSum
+ 1064              	.LVL103:
+ 1065              		.loc 1 290 10 view .LVU313
+ 1066 0026 8DF80500 		strb	r0, [sp, #5]
+ 291:Core/Src/LX16A.c **** 
+ 292:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 293:Core/Src/LX16A.c ****   Serial.println("LOBOT SERVO VIN READ");
+ 294:Core/Src/LX16A.c ****   int debug_value_i = 0;
+ 295:Core/Src/LX16A.c ****   for (debug_value_i = 0; debug_value_i < buf[3] + 3; debug_value_i++)
+ 296:Core/Src/LX16A.c ****   {
+ 297:Core/Src/LX16A.c ****     Serial.print(buf[debug_value_i], HEX);
+ 298:Core/Src/LX16A.c ****     Serial.print(":");
+ 299:Core/Src/LX16A.c ****   }
+ 300:Core/Src/LX16A.c ****   Serial.println(" ");
+ 301:Core/Src/LX16A.c **** #endif
+ 302:Core/Src/LX16A.c **** 
+ 303:Core/Src/LX16A.c ****   while (!HAL_HalfDuplex_EnableReceiver(huart1))
+ 1067              		.loc 1 303 3 is_stmt 1 view .LVU314
+ 1068              	.L62:
+ 1069              		.loc 1 303 9 view .LVU315
+ 1070              		.loc 1 303 11 is_stmt 0 view .LVU316
+ 1071 002a 2846     		mov	r0, r5
+ 1072 002c FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 1073              	.LVL104:
+ 1074              		.loc 1 303 9 view .LVU317
+ 1075 0030 30B9     		cbnz	r0, .L70
+ 304:Core/Src/LX16A.c ****     HAL_UART_Receive(huart1,buf,8,100);
+ 1076              		.loc 1 304 5 is_stmt 1 view .LVU318
+ 1077 0032 6423     		movs	r3, #100
+ 1078 0034 0822     		movs	r2, #8
+ 1079 0036 6946     		mov	r1, sp
+ 1080 0038 2846     		mov	r0, r5
+ 1081 003a FFF7FEFF 		bl	HAL_UART_Receive
+ 1082              	.LVL105:
+ 1083 003e F4E7     		b	.L62
+ 1084              	.L70:
+ 305:Core/Src/LX16A.c **** 
+ 306:Core/Src/LX16A.c ****   
+ 307:Core/Src/LX16A.c ****   HAL_HalfDuplex_EnableTransmitter(huart1);
+ 1085              		.loc 1 307 3 view .LVU319
+ 1086 0040 2846     		mov	r0, r5
+ 1087 0042 FFF7FEFF 		bl	HAL_HalfDuplex_EnableTransmitter
+ 1088              	.LVL106:
+ 308:Core/Src/LX16A.c ****   HAL_UART_Transmit(huart1,buf,6,timeout);
+ 1089              		.loc 1 308 3 view .LVU320
+ 1090 0046 114B     		ldr	r3, .L72
+ 1091 0048 1B68     		ldr	r3, [r3]
+ 1092 004a 0622     		movs	r2, #6
+ 1093 004c 6946     		mov	r1, sp
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 26
+
+
+ 1094 004e 2846     		mov	r0, r5
+ 1095 0050 FFF7FEFF 		bl	HAL_UART_Transmit
+ 1096              	.LVL107:
+ 309:Core/Src/LX16A.c **** 
+ 310:Core/Src/LX16A.c ****   while (HAL_HalfDuplex_EnableReceiver(huart1)) {
+ 1097              		.loc 1 310 3 view .LVU321
+ 282:Core/Src/LX16A.c ****   int ret;
+ 1098              		.loc 1 282 7 is_stmt 0 view .LVU322
+ 1099 0054 42F21074 		movw	r4, #10000
+ 1100              	.LVL108:
+ 1101              	.L64:
+ 1102              		.loc 1 310 9 is_stmt 1 view .LVU323
+ 1103              		.loc 1 310 10 is_stmt 0 view .LVU324
+ 1104 0058 2846     		mov	r0, r5
+ 1105 005a FFF7FEFF 		bl	HAL_HalfDuplex_EnableReceiver
+ 1106              	.LVL109:
+ 1107              		.loc 1 310 9 view .LVU325
+ 1108 005e 18B1     		cbz	r0, .L71
+ 311:Core/Src/LX16A.c ****     count -= 1;
+ 1109              		.loc 1 311 5 is_stmt 1 view .LVU326
+ 1110              	.LVL110:
+ 312:Core/Src/LX16A.c ****     if (count < 0)
+ 1111              		.loc 1 312 5 view .LVU327
+ 1112              		.loc 1 312 8 is_stmt 0 view .LVU328
+ 1113 0060 013C     		subs	r4, r4, #1
+ 1114              	.LVL111:
+ 1115              		.loc 1 312 8 view .LVU329
+ 1116 0062 F9D5     		bpl	.L64
+ 313:Core/Src/LX16A.c ****       return -2048;
+ 1117              		.loc 1 313 14 view .LVU330
+ 1118 0064 0A48     		ldr	r0, .L72+4
+ 1119 0066 0CE0     		b	.L61
+ 1120              	.L71:
+ 314:Core/Src/LX16A.c ****   }
+ 315:Core/Src/LX16A.c **** 
+ 316:Core/Src/LX16A.c ****   if (LobotSerialServoReceiveHandle(huart1, buf) > 0)
+ 1121              		.loc 1 316 3 is_stmt 1 view .LVU331
+ 1122              		.loc 1 316 7 is_stmt 0 view .LVU332
+ 1123 0068 6946     		mov	r1, sp
+ 1124 006a 2846     		mov	r0, r5
+ 1125 006c FFF7FEFF 		bl	LobotSerialServoReceiveHandle
+ 1126              	.LVL112:
+ 1127              		.loc 1 316 6 view .LVU333
+ 1128 0070 0028     		cmp	r0, #0
+ 1129 0072 08DD     		ble	.L68
+ 317:Core/Src/LX16A.c ****     ret = (int16_t)BYTE_TO_HW(buf[2], buf[1]);
+ 1130              		.loc 1 317 5 is_stmt 1 view .LVU334
+ 1131              		.loc 1 317 20 is_stmt 0 view .LVU335
+ 1132 0074 9DF80230 		ldrb	r3, [sp, #2]	@ zero_extendqisi2
+ 1133 0078 9DF80100 		ldrb	r0, [sp, #1]	@ zero_extendqisi2
+ 1134              		.loc 1 317 11 view .LVU336
+ 1135 007c 40EA0320 		orr	r0, r0, r3, lsl #8
+ 1136 0080 00B2     		sxth	r0, r0
+ 1137              	.LVL113:
+ 1138              	.L61:
+ 318:Core/Src/LX16A.c ****   else
+ 319:Core/Src/LX16A.c ****     ret = -2049;
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 27
+
+
+ 320:Core/Src/LX16A.c **** 
+ 321:Core/Src/LX16A.c **** #ifdef LOBOT_DEBUG
+ 322:Core/Src/LX16A.c ****   Serial.println(ret);
+ 323:Core/Src/LX16A.c **** #endif
+ 324:Core/Src/LX16A.c ****   return ret;
+ 325:Core/Src/LX16A.c **** }
+ 1139              		.loc 1 325 1 view .LVU337
+ 1140 0082 03B0     		add	sp, sp, #12
+ 1141              	.LCFI28:
+ 1142              		.cfi_remember_state
+ 1143              		.cfi_def_cfa_offset 12
+ 1144              		@ sp needed
+ 1145 0084 30BD     		pop	{r4, r5, pc}
+ 1146              	.LVL114:
+ 1147              	.L68:
+ 1148              	.LCFI29:
+ 1149              		.cfi_restore_state
+ 319:Core/Src/LX16A.c **** 
+ 1150              		.loc 1 319 9 view .LVU338
+ 1151 0086 6FF40060 		mvn	r0, #2048
+ 1152 008a FAE7     		b	.L61
+ 1153              	.L73:
+ 1154              		.align	2
+ 1155              	.L72:
+ 1156 008c 00000000 		.word	.LANCHOR0
+ 1157 0090 00F8FFFF 		.word	-2048
+ 1158              		.cfi_endproc
+ 1159              	.LFE74:
+ 1161              		.global	timeout
+ 1162              		.section	.data.timeout,"aw"
+ 1163              		.align	2
+ 1164              		.set	.LANCHOR0,. + 0
+ 1167              	timeout:
+ 1168 0000 64000000 		.word	100
+ 1169              		.text
+ 1170              	.Letext0:
+ 1171              		.file 2 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
+ 1172              		.file 3 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
+ 1173              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
+ 1174              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
+ 1175              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
+ 1176              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+ 1177              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+ 1178              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+ 1179              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+ 1180              		.file 11 "Core/Inc/usart.h"
+ 1181              		.file 12 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 1182              		.file 13 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 1183              		.file 14 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 1184              		.file 15 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 1185              		.file 16 "Core/Inc/LX16A.h"
+ 1186              		.file 17 "<built-in>"
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s 			page 28
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 LX16A.c
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:16     .text.LobotCheckSum:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:24     .text.LobotCheckSum:0000000000000000 LobotCheckSum
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:84     .text.LobotSerialServoMove:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:91     .text.LobotSerialServoMove:0000000000000000 LobotSerialServoMove
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:204    .text.LobotSerialServoMove:0000000000000070 $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:209    .text.LobotSerialServoStopMove:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:216    .text.LobotSerialServoStopMove:0000000000000000 LobotSerialServoStopMove
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:287    .text.LobotSerialServoStopMove:0000000000000048 $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:292    .text.LobotSerialServoSetID:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:299    .text.LobotSerialServoSetID:0000000000000000 LobotSerialServoSetID
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:373    .text.LobotSerialServoSetID:000000000000004c $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:378    .text.LobotSerialServoSetMode:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:385    .text.LobotSerialServoSetMode:0000000000000000 LobotSerialServoSetMode
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:476    .text.LobotSerialServoSetMode:0000000000000060 $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:481    .text.LobotSerialServoLoad:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:488    .text.LobotSerialServoLoad:0000000000000000 LobotSerialServoLoad
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:563    .text.LobotSerialServoLoad:0000000000000050 $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:568    .text.LobotSerialServoUnload:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:575    .text.LobotSerialServoUnload:0000000000000000 LobotSerialServoUnload
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:650    .text.LobotSerialServoUnload:0000000000000050 $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:655    .text.LobotSerialServoReceiveHandle:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:662    .text.LobotSerialServoReceiveHandle:0000000000000000 LobotSerialServoReceiveHandle
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:862    .text.LobotSerialServoReadPosition:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:869    .text.LobotSerialServoReadPosition:0000000000000000 LobotSerialServoReadPosition
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1006   .text.LobotSerialServoReadPosition:000000000000008c $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1012   .text.LobotSerialServoReadVin:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1019   .text.LobotSerialServoReadVin:0000000000000000 LobotSerialServoReadVin
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1156   .text.LobotSerialServoReadVin:000000000000008c $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1167   .data.timeout:0000000000000000 timeout
+C:\Users\PIERRE~1\AppData\Local\Temp\ccU323Bw.s:1163   .data.timeout:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+HAL_HalfDuplex_EnableTransmitter
+HAL_UART_Transmit
+HAL_HalfDuplex_EnableReceiver
+HAL_UART_Receive
+memcpy
