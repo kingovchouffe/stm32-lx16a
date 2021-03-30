@@ -1,8 +1,8 @@
 
-#include "LX16A.h"
 
-
+#include "main.h"
 //#define LOBOT_DEBUG 1  /*Debug ：print debug value*/
+uint32_t timeout1=100;
 
 uint8_t LobotCheckSum(uint8_t buf[])
 {
@@ -34,7 +34,7 @@ void LobotSerialServoMove(UART_HandleTypeDef *huart1, uint8_t id, int16_t positi
   buf[9] = LobotCheckSum(buf);
   
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,10,timeout);
+  HAL_UART_Transmit(huart1,buf,10,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
 
 }
@@ -48,7 +48,7 @@ void LobotSerialServoStopMove(UART_HandleTypeDef *huart1, uint8_t id)
   buf[4] = LOBOT_SERVO_MOVE_STOP;
   buf[5] = LobotCheckSum(buf);
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,6,timeout);
+  HAL_UART_Transmit(huart1,buf,6,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
 }
 
@@ -62,7 +62,7 @@ void LobotSerialServoSetID(UART_HandleTypeDef *huart1, uint8_t oldID, uint8_t ne
   buf[5] = newID;
   buf[6] = LobotCheckSum(buf);
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,7,timeout);
+  HAL_UART_Transmit(huart1,buf,7,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
   
 #ifdef LOBOT_DEBUG
@@ -104,7 +104,7 @@ void LobotSerialServoSetMode(UART_HandleTypeDef *huart1, uint8_t id, uint8_t Mod
 #endif
 
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,10,timeout);
+  HAL_UART_Transmit(huart1,buf,10,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
 }
 void LobotSerialServoLoad(UART_HandleTypeDef *huart1, uint8_t id)
@@ -118,7 +118,7 @@ void LobotSerialServoLoad(UART_HandleTypeDef *huart1, uint8_t id)
   buf[6] = LobotCheckSum(buf);
   
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,7,timeout);
+  HAL_UART_Transmit(huart1,buf,7,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
   
 #ifdef LOBOT_DEBUG
@@ -144,7 +144,7 @@ void LobotSerialServoUnload(UART_HandleTypeDef *huart1, uint8_t id)
   buf[5] = 0;
   buf[6] = LobotCheckSum(buf);
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,7,timeout);
+  HAL_UART_Transmit(huart1,buf,7,timeout1);
   HAL_HalfDuplex_EnableReceiver(huart1);
   
 #ifdef LOBOT_DEBUG
@@ -259,7 +259,7 @@ int LobotSerialServoReadPosition(UART_HandleTypeDef *huart1, uint8_t id)
       HAL_UART_Receive(huart1,buf,8,100);
 
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,6,timeout);
+  HAL_UART_Transmit(huart1,buf,6,timeout1);
 
   while (!HAL_HalfDuplex_EnableReceiver(huart1)) {
     count -= 1;
@@ -305,7 +305,7 @@ int LobotSerialServoReadVin(UART_HandleTypeDef *huart1, uint8_t id)
 
   
   HAL_HalfDuplex_EnableTransmitter(huart1);
-  HAL_UART_Transmit(huart1,buf,6,timeout);
+  HAL_UART_Transmit(huart1,buf,6,timeout1);
 
   while (HAL_HalfDuplex_EnableReceiver(huart1)) {
     count -= 1;

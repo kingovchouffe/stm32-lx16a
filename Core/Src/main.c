@@ -96,7 +96,11 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+LobotSerialServoMove(&huart1,1,100,500);
+HAL_Delay(1000);
+LobotSerialServoMove(&huart1,1,200,500);
+HAL_Delay(1000);
+LobotSerialServoMove(&huart1,1,300,500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */

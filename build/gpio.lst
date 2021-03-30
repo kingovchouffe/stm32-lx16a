@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 1
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
 
 
    1              		.cpu cortex-m3
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 1
   30:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
   31:Core/Src/gpio.c **** 
   32:Core/Src/gpio.c **** /* USER CODE END 1 */
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 2
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 2
 
 
   33:Core/Src/gpio.c **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 1
   48:Core/Src/gpio.c **** }
   66              		.loc 1 48 1 is_stmt 0 view .LVU13
   67 0028 02B0     		add	sp, sp, #8
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 3
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 3
 
 
   68              	.LCFI1:
@@ -138,14 +138,22 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 1
   83              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
   84              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
   85              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
-  86              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s 			page 4
+  86              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
+  87              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
+  88              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
+  89              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
+  90              		.file 11 "Core/Inc/usart.h"
+  91              		.file 12 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+  92              		.file 13 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+  93              		.file 14 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+  94              		.file 15 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio.c
-C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s:16     .text.MX_GPIO_Init:0000000000000000 $t
-C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-C:\Users\PIERRE~1\AppData\Local\Temp\ccjm5r50.s:75     .text.MX_GPIO_Init:000000000000002c $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:16     .text.MX_GPIO_Init:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:75     .text.MX_GPIO_Init:000000000000002c $d
 
 NO UNDEFINED SYMBOLS

@@ -1,6 +1,6 @@
 #include "stdint.h"
 #include "stdbool.h"
-#include "main.h"
+
 #include "usart.h"
 #include "string.h"
 #define GET_LOW_BYTE(A) (uint8_t)((A))
@@ -40,4 +40,21 @@
 #define LOBOT_SERVO_LED_ERROR_WRITE      35
 #define LOBOT_SERVO_LED_ERROR_READ       36
 
-uint32_t timeout=100;
+uint8_t LobotCheckSum(uint8_t buf[]);
+void LobotSerialServoMove(UART_HandleTypeDef *huart1, uint8_t id, int16_t position, uint16_t time);
+void LobotSerialServoStopMove(UART_HandleTypeDef *huart1, uint8_t id);
+void LobotSerialServoSetID(UART_HandleTypeDef *huart1, uint8_t oldID, uint8_t newID);
+void LobotSerialServoSetMode(UART_HandleTypeDef *huart1, uint8_t id, uint8_t Mode, int16_t Speed);
+int LobotSerialServoReceiveHandle(UART_HandleTypeDef *huart1, uint8_t *ret);
+void LobotSerialServoUnload(UART_HandleTypeDef *huart1, uint8_t id);
+int LobotSerialServoReadPosition(UART_HandleTypeDef *huart1, uint8_t id);
+int LobotSerialServoReadVin(UART_HandleTypeDef *huart1, uint8_t id);
+
+
+
+
+
+
+
+
+
