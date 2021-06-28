@@ -1,6 +1,5 @@
 #include "stdint.h"
 #include "stdbool.h"
-
 #include "usart.h"
 #include "string.h"
 #define GET_LOW_BYTE(A) (uint8_t)((A))

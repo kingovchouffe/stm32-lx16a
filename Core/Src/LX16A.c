@@ -1,6 +1,5 @@
-
-
 #include "main.h"
+
 //#define LOBOT_DEBUG 1  /*Debug ：print debug value*/
 uint32_t timeout1=100;
 

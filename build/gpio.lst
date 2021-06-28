@@ -1,7 +1,7 @@
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s 			page 1
 
 
-   1              		.cpu cortex-m3
+   1              		.cpu cortex-m0
    2              		.eabi_attribute 20, 1
    3              		.eabi_attribute 21, 1
    4              		.eabi_attribute 23, 3
@@ -9,7 +9,7 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
    6              		.eabi_attribute 25, 1
    7              		.eabi_attribute 26, 1
    8              		.eabi_attribute 30, 1
-   9              		.eabi_attribute 34, 1
+   9              		.eabi_attribute 34, 0
   10              		.eabi_attribute 18, 4
   11              		.file	"gpio.c"
   12              		.text
@@ -18,13 +18,13 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
   15              		.section	.text.MX_GPIO_Init,"ax",%progbits
   16              		.align	1
   17              		.global	MX_GPIO_Init
-  18              		.arch armv7-m
+  18              		.arch armv6s-m
   19              		.syntax unified
-  20              		.thumb
+  20              		.code	16
   21              		.thumb_func
   22              		.fpu softvfp
   24              	MX_GPIO_Init:
-  25              	.LFB65:
+  25              	.LFB40:
   26              		.file 1 "Core/Src/gpio.c"
    1:Core/Src/gpio.c **** /**
    2:Core/Src/gpio.c ****   ******************************************************************************
@@ -34,7 +34,7 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
    6:Core/Src/gpio.c ****   ******************************************************************************
    7:Core/Src/gpio.c ****   * @attention
    8:Core/Src/gpio.c ****   *
-   9:Core/Src/gpio.c ****   * <h2><center>&copy; Copyright (c) 2020 STMicroelectronics.
+   9:Core/Src/gpio.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
   10:Core/Src/gpio.c ****   * All rights reserved.</center></h2>
   11:Core/Src/gpio.c ****   *
   12:Core/Src/gpio.c ****   * This software component is licensed by ST under BSD 3-Clause license,
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
   30:Core/Src/gpio.c **** /* USER CODE BEGIN 1 */
   31:Core/Src/gpio.c **** 
   32:Core/Src/gpio.c **** /* USER CODE END 1 */
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 2
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s 			page 2
 
 
   33:Core/Src/gpio.c **** 
@@ -73,87 +73,166 @@ ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 1
   42:Core/Src/gpio.c **** {
   27              		.loc 1 42 1 view -0
   28              		.cfi_startproc
-  29              		@ args = 0, pretend = 0, frame = 8
+  29              		@ args = 0, pretend = 0, frame = 32
   30              		@ frame_needed = 0, uses_anonymous_args = 0
-  31              		@ link register save eliminated.
-  32 0000 82B0     		sub	sp, sp, #8
-  33              	.LCFI0:
-  34              		.cfi_def_cfa_offset 8
+  31 0000 10B5     		push	{r4, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 4, -8
+  35              		.cfi_offset 14, -4
+  36 0002 88B0     		sub	sp, sp, #32
+  37              	.LCFI1:
+  38              		.cfi_def_cfa_offset 40
   43:Core/Src/gpio.c **** 
-  44:Core/Src/gpio.c ****   /* GPIO Ports Clock Enable */
-  45:Core/Src/gpio.c ****   __HAL_RCC_GPIOD_CLK_ENABLE();
-  35              		.loc 1 45 3 view .LVU1
-  36              	.LBB2:
-  37              		.loc 1 45 3 view .LVU2
-  38              		.loc 1 45 3 view .LVU3
-  39 0002 0A4B     		ldr	r3, .L3
-  40 0004 9A69     		ldr	r2, [r3, #24]
-  41 0006 42F02002 		orr	r2, r2, #32
-  42 000a 9A61     		str	r2, [r3, #24]
-  43              		.loc 1 45 3 view .LVU4
-  44 000c 9A69     		ldr	r2, [r3, #24]
-  45 000e 02F02002 		and	r2, r2, #32
-  46 0012 0092     		str	r2, [sp]
-  47              		.loc 1 45 3 view .LVU5
-  48 0014 009A     		ldr	r2, [sp]
-  49              	.LBE2:
-  50              		.loc 1 45 3 view .LVU6
-  46:Core/Src/gpio.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
-  51              		.loc 1 46 3 view .LVU7
-  52              	.LBB3:
-  53              		.loc 1 46 3 view .LVU8
-  54              		.loc 1 46 3 view .LVU9
-  55 0016 9A69     		ldr	r2, [r3, #24]
-  56 0018 42F00402 		orr	r2, r2, #4
-  57 001c 9A61     		str	r2, [r3, #24]
-  58              		.loc 1 46 3 view .LVU10
-  59 001e 9B69     		ldr	r3, [r3, #24]
-  60 0020 03F00403 		and	r3, r3, #4
-  61 0024 0193     		str	r3, [sp, #4]
-  62              		.loc 1 46 3 view .LVU11
-  63 0026 019B     		ldr	r3, [sp, #4]
-  64              	.LBE3:
-  65              		.loc 1 46 3 view .LVU12
-  47:Core/Src/gpio.c **** 
-  48:Core/Src/gpio.c **** }
-  66              		.loc 1 48 1 is_stmt 0 view .LVU13
-  67 0028 02B0     		add	sp, sp, #8
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 3
+  44:Core/Src/gpio.c ****   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  39              		.loc 1 44 3 view .LVU1
+  40              		.loc 1 44 20 is_stmt 0 view .LVU2
+  41 0004 1422     		movs	r2, #20
+  42 0006 0021     		movs	r1, #0
+  43 0008 03A8     		add	r0, sp, #12
+  44 000a FFF7FEFF 		bl	memset
+  45              	.LVL0:
+  45:Core/Src/gpio.c **** 
+  46:Core/Src/gpio.c ****   /* GPIO Ports Clock Enable */
+  47:Core/Src/gpio.c ****   __HAL_RCC_GPIOF_CLK_ENABLE();
+  46              		.loc 1 47 3 is_stmt 1 view .LVU3
+  47              	.LBB2:
+  48              		.loc 1 47 3 view .LVU4
+  49              		.loc 1 47 3 view .LVU5
+  50 000e 184B     		ldr	r3, .L2
+  51 0010 5969     		ldr	r1, [r3, #20]
+  52 0012 8020     		movs	r0, #128
+  53 0014 C003     		lsls	r0, r0, #15
+  54 0016 0143     		orrs	r1, r0
+  55 0018 5961     		str	r1, [r3, #20]
+  56              		.loc 1 47 3 view .LVU6
+  57 001a 5A69     		ldr	r2, [r3, #20]
+  58 001c 0240     		ands	r2, r0
+  59 001e 0092     		str	r2, [sp]
+  60              		.loc 1 47 3 view .LVU7
+  61 0020 009A     		ldr	r2, [sp]
+  62              	.LBE2:
+  63              		.loc 1 47 3 view .LVU8
+  48:Core/Src/gpio.c ****   __HAL_RCC_GPIOA_CLK_ENABLE();
+  64              		.loc 1 48 3 view .LVU9
+  65              	.LBB3:
+  66              		.loc 1 48 3 view .LVU10
+  67              		.loc 1 48 3 view .LVU11
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s 			page 3
 
 
-  68              	.LCFI1:
-  69              		.cfi_def_cfa_offset 0
-  70              		@ sp needed
-  71 002a 7047     		bx	lr
-  72              	.L4:
-  73              		.align	2
-  74              	.L3:
-  75 002c 00100240 		.word	1073876992
-  76              		.cfi_endproc
-  77              	.LFE65:
-  79              		.text
-  80              	.Letext0:
-  81              		.file 2 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
-  82              		.file 3 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
-  83              		.file 4 "Drivers/CMSIS/Include/core_cm3.h"
-  84              		.file 5 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/system_stm32f1xx.h"
-  85              		.file 6 "Drivers/CMSIS/Device/ST/STM32F1xx/Include/stm32f103xb.h"
-  86              		.file 7 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h"
-  87              		.file 8 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_dma.h"
-  88              		.file 9 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h"
-  89              		.file 10 "Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h"
-  90              		.file 11 "Core/Inc/usart.h"
-  91              		.file 12 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
-  92              		.file 13 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
-  93              		.file 14 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
-  94              		.file 15 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
-ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s 			page 4
+  68 0022 5969     		ldr	r1, [r3, #20]
+  69 0024 8020     		movs	r0, #128
+  70 0026 8002     		lsls	r0, r0, #10
+  71 0028 0143     		orrs	r1, r0
+  72 002a 5961     		str	r1, [r3, #20]
+  73              		.loc 1 48 3 view .LVU12
+  74 002c 5A69     		ldr	r2, [r3, #20]
+  75 002e 0240     		ands	r2, r0
+  76 0030 0192     		str	r2, [sp, #4]
+  77              		.loc 1 48 3 view .LVU13
+  78 0032 019A     		ldr	r2, [sp, #4]
+  79              	.LBE3:
+  80              		.loc 1 48 3 view .LVU14
+  49:Core/Src/gpio.c ****   __HAL_RCC_GPIOB_CLK_ENABLE();
+  81              		.loc 1 49 3 view .LVU15
+  82              	.LBB4:
+  83              		.loc 1 49 3 view .LVU16
+  84              		.loc 1 49 3 view .LVU17
+  85 0034 5A69     		ldr	r2, [r3, #20]
+  86 0036 8021     		movs	r1, #128
+  87 0038 C902     		lsls	r1, r1, #11
+  88 003a 0A43     		orrs	r2, r1
+  89 003c 5A61     		str	r2, [r3, #20]
+  90              		.loc 1 49 3 view .LVU18
+  91 003e 5B69     		ldr	r3, [r3, #20]
+  92 0040 0B40     		ands	r3, r1
+  93 0042 0293     		str	r3, [sp, #8]
+  94              		.loc 1 49 3 view .LVU19
+  95 0044 029B     		ldr	r3, [sp, #8]
+  96              	.LBE4:
+  97              		.loc 1 49 3 view .LVU20
+  50:Core/Src/gpio.c **** 
+  51:Core/Src/gpio.c ****   /*Configure GPIO pin Output Level */
+  52:Core/Src/gpio.c ****   HAL_GPIO_WritePin(GPIOB, GPIO_PIN_3, GPIO_PIN_RESET);
+  98              		.loc 1 52 3 view .LVU21
+  99 0046 0B4C     		ldr	r4, .L2+4
+ 100 0048 0022     		movs	r2, #0
+ 101 004a 0821     		movs	r1, #8
+ 102 004c 2000     		movs	r0, r4
+ 103 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 104              	.LVL1:
+  53:Core/Src/gpio.c **** 
+  54:Core/Src/gpio.c ****   /*Configure GPIO pin : PB3 */
+  55:Core/Src/gpio.c ****   GPIO_InitStruct.Pin = GPIO_PIN_3;
+ 105              		.loc 1 55 3 view .LVU22
+ 106              		.loc 1 55 23 is_stmt 0 view .LVU23
+ 107 0052 0823     		movs	r3, #8
+ 108 0054 0393     		str	r3, [sp, #12]
+  56:Core/Src/gpio.c ****   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+ 109              		.loc 1 56 3 is_stmt 1 view .LVU24
+ 110              		.loc 1 56 24 is_stmt 0 view .LVU25
+ 111 0056 073B     		subs	r3, r3, #7
+ 112 0058 0493     		str	r3, [sp, #16]
+  57:Core/Src/gpio.c ****   GPIO_InitStruct.Pull = GPIO_PULLDOWN;
+ 113              		.loc 1 57 3 is_stmt 1 view .LVU26
+ 114              		.loc 1 57 24 is_stmt 0 view .LVU27
+ 115 005a 0133     		adds	r3, r3, #1
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s 			page 4
+
+
+ 116 005c 0593     		str	r3, [sp, #20]
+  58:Core/Src/gpio.c ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_HIGH;
+ 117              		.loc 1 58 3 is_stmt 1 view .LVU28
+ 118              		.loc 1 58 25 is_stmt 0 view .LVU29
+ 119 005e 0133     		adds	r3, r3, #1
+ 120 0060 0693     		str	r3, [sp, #24]
+  59:Core/Src/gpio.c ****   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+ 121              		.loc 1 59 3 is_stmt 1 view .LVU30
+ 122 0062 03A9     		add	r1, sp, #12
+ 123 0064 2000     		movs	r0, r4
+ 124 0066 FFF7FEFF 		bl	HAL_GPIO_Init
+ 125              	.LVL2:
+  60:Core/Src/gpio.c **** 
+  61:Core/Src/gpio.c **** }
+ 126              		.loc 1 61 1 is_stmt 0 view .LVU31
+ 127 006a 08B0     		add	sp, sp, #32
+ 128              		@ sp needed
+ 129 006c 10BD     		pop	{r4, pc}
+ 130              	.L3:
+ 131 006e C046     		.align	2
+ 132              	.L2:
+ 133 0070 00100240 		.word	1073876992
+ 134 0074 00040048 		.word	1207960576
+ 135              		.cfi_endproc
+ 136              	.LFE40:
+ 138              		.text
+ 139              	.Letext0:
+ 140              		.file 2 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
+ 141              		.file 3 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgcc
+ 142              		.file 4 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/system_stm32f0xx.h"
+ 143              		.file 5 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f042x6.h"
+ 144              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 145              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_gpio.h"
+ 146              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 147              		.file 9 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_uart.h"
+ 148              		.file 10 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal.h"
+ 149              		.file 11 "Core/Inc/usart.h"
+ 150              		.file 12 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 151              		.file 13 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 152              		.file 14 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 153              		.file 15 "c:\\users\\pierre-anthony\\.vscode\\extensions\\buzzyelectronics.stm-helper-1.2.9\\armgc
+ 154              		.file 16 "<built-in>"
+ARM GAS  C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:0000000000000000 gpio.c
-C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:16     .text.MX_GPIO_Init:0000000000000000 $t
-C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
-C:\Users\PIERRE~1\AppData\Local\Temp\ccyAzyud.s:75     .text.MX_GPIO_Init:000000000000002c $d
+C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s:16     .text.MX_GPIO_Init:0000000000000000 $t
+C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s:24     .text.MX_GPIO_Init:0000000000000000 MX_GPIO_Init
+C:\Users\PIERRE~1\AppData\Local\Temp\ccJmDKwc.s:133    .text.MX_GPIO_Init:0000000000000070 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+memset
+HAL_GPIO_WritePin
+HAL_GPIO_Init

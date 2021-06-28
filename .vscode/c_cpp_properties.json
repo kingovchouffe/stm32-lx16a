@@ -32,7 +32,7 @@
 			[
 				"${userDefines}",
 				"USE_HAL_DRIVER", 
-				"STM32F103xB"
+				"STM32F042x6"
 			],
 			"includePath":
 			[
@@ -40,10 +40,9 @@
 				"${workspaceFolder}",
 				"c:/Users/Pierre-Anthony/.vscode/extensions/buzzyelectronics.stm-helper-1.2.9/ArmGcc/lib/gcc/arm-none-eabi/9.2.1/include",
 				"Core/Inc", 
-				"Drivers/STM32F1xx_HAL_Driver/Inc", 
-				"Drivers/STM32F1xx_HAL_Driver/Inc/Legacy", 
-				"Drivers/CMSIS/Device/ST/STM32F1xx/Include", 
-				"Drivers/CMSIS/Include", 
+				"Drivers/STM32F0xx_HAL_Driver/Inc", 
+				"Drivers/STM32F0xx_HAL_Driver/Inc/Legacy", 
+				"Drivers/CMSIS/Device/ST/STM32F0xx/Include", 
 				"Drivers/CMSIS/Include"
 			]
 		}
